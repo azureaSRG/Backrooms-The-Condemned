@@ -3,6 +3,7 @@ package com.github.azereaSRG.capstone;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 
 public abstract class GameObject {
     protected final Rectangle rect;
@@ -26,5 +27,10 @@ public abstract class GameObject {
         batch.draw(texture, rect.x, rect.y, rect.width, rect.height);
     }
 
-    abstract void update(float deltaTime);
+    public Vector2 getCenter(Vector2 out) {
+        out.set(rect.x + rect.width / 2, rect.y + rect.height / 2);
+        return out;
+    }
+
+    public abstract void update(float deltaTime);
 }

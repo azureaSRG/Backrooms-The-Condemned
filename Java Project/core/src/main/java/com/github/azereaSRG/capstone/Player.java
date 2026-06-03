@@ -23,7 +23,7 @@ public class Player extends GameObject {
     }
 
     @Override
-    void update(float deltaTime) {
+    public void update(float deltaTime) {
 
     }
 }

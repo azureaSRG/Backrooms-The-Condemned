@@ -1,17 +1,17 @@
 package com.github.azereaSRG.capstone.ItemScripts;
 
-public abstract class PlayerItem {
+public class Item {
     protected String name;
     protected String description;
     protected int rarity;
     protected int itemWidthInInventory, itemHeightInInventory;
 
-    public PlayerItem(String name, String description, int rarity) {
+    public Item(String name, String description, int rarity) {
         this(name, description, rarity, 1, 1);
     }
 
-    public PlayerItem(String name, String description, int rarity,
-                      int itemWidthInInventory, int itemHeightInInventory) {
+    public Item(String name, String description, int rarity,
+                int itemWidthInInventory, int itemHeightInInventory) {
         this.name = name;
         this.description = description;
         this.rarity = rarity;
@@ -22,4 +22,9 @@ public abstract class PlayerItem {
     public void draw() {
 
     }
+
+    static class Icon {
+
+    }
 }
+

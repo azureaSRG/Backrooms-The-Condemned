@@ -47,7 +47,7 @@ public class Main extends Game {
 
         Player player = new Player(0,0, viewport, new Texture("libgdx16.png"));
 
-        Faceling entity = new Faceling(0,0,new Texture("libgdx16.png"), player);
+        Faceling.Stranger entity = new Faceling.Stranger(0,0,new Texture("libgdx16.png"), player);
         entity.runMain();
     }
 }

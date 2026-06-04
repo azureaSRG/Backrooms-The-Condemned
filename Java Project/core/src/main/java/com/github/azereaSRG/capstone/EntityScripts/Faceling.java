@@ -4,42 +4,43 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.azereaSRG.capstone.Player;
 
-public class Faceling extends EntityInterface.EntityClass implements EntityInterface {
+public class Faceling {
 
-    EntityStates state = EntityStates.NEUTRAL;
+    public static abstract class FacelingInterface extends EntityInterface.EntityClass implements EntityInterface {
+        protected boolean isRacist;
 
-    public Faceling(float x, float y, Texture texture, Player player) {
-        super(x, y, texture, player);
+        public FacelingInterface(float x, float y, Texture texture, Player playerRef) {
+            super(x, y, texture, playerRef);
+        }
     }
 
-    public void runMain() {
-        System.out.println("Entity Object Created!");
-        System.out.println(this.getHealth());
-        System.out.println();
-    }
+    public static class Stranger extends FacelingInterface {
+        public Stranger(float x, float y, Texture texture, Player playerRef) {
+            super(x, y, texture, playerRef);
+        }
 
-    @Override
-    public void update(float deltaTime) {
-        super.update(deltaTime);
-    }
+        @Override
+        public void attack() {
 
-    @Override
-    public void attack() {
+        }
 
-    }
+        @Override
+        public void flee() {
 
-    @Override
-    public void flee() {
+        }
 
-    }
+        @Override
+        public void wander() {
 
-    @Override
-    public void wander() {
+        }
 
-    }
+        @Override
+        public EntityClass spawn(Viewport viewport, Texture texture, Player player) {
+            return null;
+        }
 
-    @Override
-    public EntityClass spawn(Viewport viewport, Texture texture, Player player) {
-        return null;
+        public void runMain() {
+            System.out.println(this.health);
+        }
     }
 }

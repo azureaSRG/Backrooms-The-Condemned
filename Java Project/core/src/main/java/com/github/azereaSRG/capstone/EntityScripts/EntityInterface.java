@@ -81,5 +81,5 @@ public interface EntityInterface {
 
     }
 
-    EntityClass spawn(Viewport viewport, Texture texture, Player player);
+    // EntityClass spawn(Viewport viewport, Texture texture, Player player);
 }

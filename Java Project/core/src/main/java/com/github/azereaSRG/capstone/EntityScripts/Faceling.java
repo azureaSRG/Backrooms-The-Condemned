@@ -34,13 +34,81 @@ public class Faceling {
 
         }
 
-        @Override
-        public EntityClass spawn(Viewport viewport, Texture texture, Player player) {
-            return null;
-        }
-
         public void runMain() {
             System.out.println(this.health);
+        }
+    }
+    public static class Butcher extends FacelingInterface {
+        public Butcher(float x, float y, Texture texture, Player playerRef) {
+            super(x, y, texture, playerRef);
+        }
+
+        @Override
+        public void attack() {
+        }
+
+        @Override
+        public void flee() {
+        }
+
+        @Override
+        public void wander() {
+        }
+    }
+    public static class Shopkeeper extends FacelingInterface {
+        public Shopkeeper(float x, float y, Texture texture, Player playerRef) {
+            super(x, y, texture, playerRef);
+        }
+
+        public void trade() {
+
+        }
+
+        @Override
+        public void attack() {
+        }
+
+        @Override
+        public void flee() {
+        }
+
+        @Override
+        public void wander() {
+        }
+    }
+    public static class PoliceOfficer extends FacelingInterface {
+        public PoliceOfficer(float x, float y, Texture texture, Player playerRef) {
+            super(x, y, texture, playerRef);
+        }
+
+        @Override
+        public void attack() {
+        }
+
+        @Override
+        public void flee() {
+        }
+
+        @Override
+        public void wander() {
+        }
+        
+    }
+    public static class MilitaryGeneral extends FacelingInterface {
+        public MilitaryGeneral(float x, float y, Texture texture, Player playerRef) {
+            super(x, y, texture, playerRef);
+        }
+        
+        @Override
+        public void attack() {
+        }
+
+        @Override
+        public void flee() {
+        }
+
+        @Override
+        public void wander() {
         }
     }
 }

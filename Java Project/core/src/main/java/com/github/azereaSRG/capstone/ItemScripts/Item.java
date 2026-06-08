@@ -19,12 +19,26 @@ public class Item {
         this.itemWidthInInventory = itemWidthInInventory;
     }
 
-    public void draw() {
-
+    public int getItemWidth() {
+        return itemWidthInInventory;
     }
 
-    static class Icon {
+    public int getItemHeight() {
+        return itemHeightInInventory;
+    }
 
+    public void draw() {
+        
+    }
+
+    public void dropItem() {
+        
+    }
+    
+    public void useItem() {}
+
+    static class Icon {
+        private Texture texture;
     }
 }
 

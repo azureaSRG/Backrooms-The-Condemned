@@ -1,9 +1,9 @@
-package com.github.azereaSRG.capstone;
+package com.github.azereaSRG.capstone.PlayerScripts;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-public class Player extends GameObject {
+abstract class Player extends GameObject {
     protected static final float SCALE = 1 / 32f;
     protected final Viewport gameViewport;
 
@@ -22,8 +22,9 @@ public class Player extends GameObject {
         this.gameViewport = gameViewport;
     }
 
-    @Override
-    public void update(float deltaTime) {
+    abstract void update(float deltaTime);
 
+    default void useItem(Item item) {
+        item.use();
     }
 }

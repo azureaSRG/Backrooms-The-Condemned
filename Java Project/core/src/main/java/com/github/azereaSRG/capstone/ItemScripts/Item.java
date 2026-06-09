@@ -1,5 +1,7 @@
 package com.github.azereaSRG.capstone.ItemScripts;
 
+import com.badlogic.gdx.graphics.Texture;
+
 public class Item {
     protected String name;
     protected String description;
@@ -28,17 +30,17 @@ public class Item {
     }
 
     public void draw() {
-        
+
     }
 
     public void dropItem() {
-        
+
     }
-    
+
     public void useItem() {}
 
     static class Icon {
-        private Texture texture;
+        public Texture texture;
     }
 }
 

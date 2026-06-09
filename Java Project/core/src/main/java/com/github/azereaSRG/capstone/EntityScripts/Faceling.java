@@ -1,8 +1,7 @@
 package com.github.azereaSRG.capstone.EntityScripts;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.utils.viewport.Viewport;
-import com.github.azereaSRG.capstone.Player;
+import com.github.azereaSRG.capstone.PlayerScripts.Player;
 
 public class Faceling {
 
@@ -32,6 +31,11 @@ public class Faceling {
         @Override
         public void wander() {
 
+        }
+
+        @Override
+        public void update(float deltaTime) {
+            super.update(deltaTime);
         }
 
         public void runMain() {
@@ -92,13 +96,13 @@ public class Faceling {
         @Override
         public void wander() {
         }
-        
+
     }
     public static class MilitaryGeneral extends FacelingInterface {
         public MilitaryGeneral(float x, float y, Texture texture, Player playerRef) {
             super(x, y, texture, playerRef);
         }
-        
+
         @Override
         public void attack() {
         }

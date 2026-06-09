@@ -2,9 +2,8 @@ package com.github.azereaSRG.capstone.EntityScripts;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.azereaSRG.capstone.GameObject;
-import com.github.azereaSRG.capstone.Player;
+import com.github.azereaSRG.capstone.PlayerScripts.Player;
 
 public interface EntityInterface {
 
@@ -49,7 +48,6 @@ public interface EntityInterface {
         public float getVisionRange() {return visionRange;}
         public float getHearingRange() {return hearingRange;}
 
-        @Override
         public void update(float deltaTime) {
             Vector2 direction = player.getCenter(TMP_VEC2)
                 .sub(rect.x + rect.width /2, rect.y + rect.height /2)

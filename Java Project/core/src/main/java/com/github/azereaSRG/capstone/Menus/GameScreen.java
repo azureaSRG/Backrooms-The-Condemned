@@ -20,7 +20,7 @@ public class GameScreen extends ScreenAdapter {
 
     private Batch batch;
     private Texture bgdTexture = new Texture(Gdx.files.internal("bgd.png"));
-    private Texture playerTexture = new Texture(Gdx.files.internal("larry-front-sprite.png"));
+    private Texture playerTexture = new Texture(Gdx.files.internal("larry/larry-front-sprite.png"));
     private Viewport gameViewport = new ExtendViewport(WORLD_WIDTH, WORLD_HEIGHT);
     private final Vector2 inputMovement = new Vector2();
 
@@ -50,22 +50,28 @@ public class GameScreen extends ScreenAdapter {
 
     private void getPlayerInput() {
          inputMovement.setZero();
-
-         if (Gdx.input.isKeyPressed(Input.Keys.W)) {
+         if (Gdx.input.isKeyJustPressed(Input.Keys.E)) {
+            player.accessInventory();
+            return;
+         }
+         playerMovementInputs();
+    }
+    private void playerMovementInputs() {
+        if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             inputMovement.y += 1;
-         }
-         if (Gdx.input.isKeyPressed(Input.Keys.S)) {
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.S)) {
             inputMovement.y -= 1;
-         }
-         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.A)) {
             inputMovement.x -= 1;
-         }
-         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
-             inputMovement.x += 1;
-         }
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
+            inputMovement.x += 1;
+        }
 
-         inputMovement.nor(); //Normalized Vector
-         player.updateDirection(inputMovement);
+        inputMovement.nor(); //Normalized Vector
+        player.updateDirection(inputMovement);
     }
 
     private void updatePlayer(float delta) {
@@ -83,7 +89,11 @@ public class GameScreen extends ScreenAdapter {
         batch.setProjectionMatrix(gameViewport.getCamera().combined);
         batch.begin();
 
-        batch.draw(bgdTexture, 0, 0, gameViewport.getWorldWidth(),gameViewport.getWorldHeight());
+        float uW = gameViewport.getWorldWidth() / WORLD_WIDTH;
+        float vH = gameViewport.getWorldHeight() / WORLD_HEIGHT;
+
+        batch.draw(bgdTexture, 0, 0, gameViewport.getWorldWidth()
+            , gameViewport.getWorldHeight(), 0, 0, uW, vH);
         player.draw(batch);
 
         batch.end();

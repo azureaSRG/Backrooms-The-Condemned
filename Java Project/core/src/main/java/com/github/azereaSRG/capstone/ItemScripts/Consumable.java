@@ -14,6 +14,11 @@ public class Consumable extends Item {
 
     @Override
     public void useItem() {
-        
+
+    }
+
+    protected void pullDataFromJson() {
+        super.pullDataFromJson();
+
     }
 }

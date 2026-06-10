@@ -21,13 +21,14 @@ public class Player extends GameObject {
     protected int rarity;
     protected float meleeAffinity, rangedAffinity;
 
-    private Inventory inventory = new Inventory();
+    private Inventory inventory;
 
     private final Vector2 moveDirection = new Vector2(0, 0);
 
     public Player(float x, float y, Viewport gameViewport, Texture texture) {
         super(x, y, texture.getWidth() * SCALE, texture.getHeight() * SCALE, texture);
         this.gameViewport = gameViewport;
+        inventory = new Inventory(5, 5);
 
         //TESTING PURPOSES
         setAttributesToStandard();
@@ -36,8 +37,12 @@ public class Player extends GameObject {
     public void setAttributesToStandard() {
         maxSpeed = 2;
         speed = maxSpeed;
+        accessInventory();
     }
 
+    private void testInventory() {
+//        inventory.backpack.addItem();
+    }
 
     public void reset(float x, float y) {
         rect.setPosition(x, y);
@@ -82,5 +87,10 @@ public class Player extends GameObject {
 
     public void heal(int amount) {
         health = Math.min(health + amount, maxHealth);
+    }
+
+    public void accessInventory() {
+        System.out.println("Inventory Accessed");
+        inventory.backpack.printBag();
     }
 }

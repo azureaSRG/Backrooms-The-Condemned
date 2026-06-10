@@ -1,0 +1,35 @@
+{
+  "version" : "0.0.1",
+  "item:weapon" :
+  {
+    "description" : {
+      "identifier" : "item:baseball_bat"
+    },
+
+    "components" :
+    {
+      "item:melee" : {
+        "damage" : 2,
+        "range" : 2,
+        "attack_speed" : 1,
+        "handling" : 1,
+        "durability" : 10,
+        "weight" : 5
+      },
+      "item:quality" : 3,
+      "item:size" : {
+        "width" : 3,
+        "height" : 7
+      },
+      "item:icon" : {
+        "texture" : "baseball_bat"
+      },
+      "item:display_name" : {
+        "value" : "Baseball Bat"
+      },
+      "item:description" : {
+        "value" : "baseballBatDesc."
+      }
+    }
+  }
+}

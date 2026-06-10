@@ -49,7 +49,7 @@ public class Player extends GameObject {
         move(deltaTime);
     }
 
-    void useItem(Item item) {
+    public void useItem(Item item) {
         item.useItem();
     }
 
@@ -68,5 +68,19 @@ public class Player extends GameObject {
 
     public void updateDirection(Vector2 newDirection) {
         moveDirection.set(newDirection);
+    }
+
+    private void killPlayer() {
+        texture.dispose();
+    }
+
+    public void damage(int amount) {
+        health -= amount;
+        if (health <= 0) killPlayer();
+        System.out.println("Player Killed");
+    }
+
+    public void heal(int amount) {
+        health = Math.min(health + amount, maxHealth);
     }
 }

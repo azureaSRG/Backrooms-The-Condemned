@@ -6,8 +6,6 @@ import com.badlogic.gdx.graphics.Texture;
 
 public class Hound extends EntityInterface.EntityClass implements EntityInterface {
   boolean isFrozen; // protected
-  ActionStates action = ActionStates.NEUTRAL; // protected, default setting
-  name = "Hound";
     private Player playerRef;
     private Texture texture = new Texture(Gdx.files.internal("img here")); // to be filled in with hound texture
   EntityInterface.EntityStates state = EntityInterface.EntityStates.NEUTRAL; // protected, default setting

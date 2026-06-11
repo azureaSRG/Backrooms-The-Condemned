@@ -262,7 +262,7 @@
 
 			      "components" :
 			      {
-			        "item:melee" : {
+			        "item:ranged" : {
 			          "damage" : 5,
 			          "range" : 5,
 			          "attack_speed" : 5,

@@ -34,5 +34,257 @@
         }
       }
     }
-  }
+  },
+  {
+      "id" : "item:crowbar",
+      "version" : "0.0.1",
+      "item:weapon" :
+      {
+        "description" : {
+          "identifier" : "item:crowbar"
+        },
+
+        "components" :
+        {
+          "item:melee" : {
+            "damage" : 3,
+            "range" : 2,
+            "attack_speed" : 2,
+            "handling" : 2,
+            "durability" : 25,
+            "weight" : 5
+          },
+          "item:quality" : 4,
+          "item:size" : {
+            "width" : 2,
+            "height" : 6
+          },
+          "item:icon" : {
+            "texture" : "crowbar"
+          },
+          "item:display_name" : {
+            "value" : "Crowbar"
+          },
+          "item:description" : {
+            "value" : "CrowbarDesc."
+          }
+        }
+      }
+    },
+	{
+	    "id" : "item:shovel",
+	    "version" : "0.0.1",
+	    "item:weapon" :
+	    {
+	      "description" : {
+	        "identifier" : "item:shovel"
+	      },
+
+	      "components" :
+	      {
+	        "item:melee" : {
+	          "damage" : 2,
+	          "range" : 4,
+	          "attack_speed" : 1,
+	          "handling" : 1,
+	          "durability" : 15,
+	          "weight" : 3
+	        },
+	        "item:quality" : 3,
+	        "item:size" : {
+	          "width" : 3,
+	          "height" : 8
+	        },
+	        "item:icon" : {
+	          "texture" : "shovel"
+	        },
+	        "item:display_name" : {
+	          "value" : "Shovel"
+	        },
+	        "item:description" : {
+	          "value" : "ShovelDesc."
+	        }
+	      }
+	    }
+	  },
+	  {
+	      "id" : "item:baton",
+	      "version" : "0.0.1",
+	      "item:weapon" :
+	      {
+	        "description" : {
+	          "identifier" : "item:baton"
+	        },
+
+	        "components" :
+	        {
+	          "item:melee" : {
+	            "damage" : 3,
+	            "range" : 2,
+	            "attack_speed" : 3,
+	            "handling" : 4,
+	            "durability" : 20,
+	            "weight" : 5
+	          },
+	          "item:quality" : 4,
+	          "item:size" : {
+	            "width" : 2,
+	            "height" : 5
+	          },
+	          "item:icon" : {
+	            "texture" : "baton"
+	          },
+	          "item:display_name" : {
+	            "value" : "Baton"
+	          },
+	          "item:description" : {
+	            "value" : "batonDesc."
+	          }
+	        }
+	      }
+	    },	  
+		{
+	      "id" : "item:knife",
+	      "version" : "0.0.1",
+	      "item:weapon" :
+	      {
+	        "description" : {
+	          "identifier" : "item:knife"
+	        },
+
+	        "components" :
+	        {
+	          "item:melee" : {
+	            "damage" : 3,
+	            "range" : 1,
+	            "attack_speed" : 5,
+	            "handling" : 5,
+	            "durability" : 15,
+	            "weight" : 8
+	          },
+	          "item:quality" : 4,
+	          "item:size" : {
+	            "width" : 1,
+	            "height" : 3
+	          },
+	          "item:icon" : {
+	            "texture" : "knife"
+	          },
+	          "item:display_name" : {
+	            "value" : "Knife"
+	          },
+	          "item:description" : {
+	            "value" : "knifeDesc."
+	          }
+	        }
+	      }
+	    },
+		{
+		    "id" : "item:machete",
+		    "version" : "0.0.1",
+		    "item:weapon" :
+		    {
+		      "description" : {
+		        "identifier" : "item:machete"
+		      },
+
+		      "components" :
+		      {
+		        "item:melee" : {
+		          "damage" : 5,
+		          "range" : 4,
+		          "attack_speed" : 3,
+		          "handling" : 3,
+		          "durability" : 20,
+		          "weight" : 5
+		        },
+		        "item:quality" : 5,
+		        "item:size" : {
+		          "width" : 3,
+		          "height" : 6
+		        },
+		        "item:icon" : {
+		          "texture" : "machete"
+		        },
+		        "item:display_name" : {
+		          "value" : "Machete"
+		        },
+		        "item:description" : {
+		          "value" : "macheteDesc."
+		        }
+		      }
+		    }
+		  },
+		  {
+		      "id" : "item:pistol",
+		      "version" : "0.0.1",
+		      "item:weapon" :
+		      {
+		        "description" : {
+		          "identifier" : "item:pistol"
+		        },
+
+		        "components" :
+		        {
+		          "item:ranged" : {
+		            "damage" : 5,
+		            "range" : 5,
+		            "attack_speed" : 4,
+		            "handling" : 4,
+		            "durability" : 3,
+		            "weight" : 6
+		          },
+		          "item:quality" : 5,
+		          "item:size" : {
+		            "width" : 2,
+		            "height" : 4
+		          },
+		          "item:icon" : {
+		            "texture" : "pistol"
+		          },
+		          "item:display_name" : {
+		            "value" : "Pistol"
+		          },
+		          "item:description" : {
+		            "value" : "pistolDesc."
+		          }
+		        }
+		      }
+		    },
+			{
+			    "id" : "item:rifle",
+			    "version" : "0.0.1",
+			    "item:weapon" :
+			    {
+			      "description" : {
+			        "identifier" : "item:rifle"
+			      },
+
+			      "components" :
+			      {
+			        "item:melee" : {
+			          "damage" : 5,
+			          "range" : 5,
+			          "attack_speed" : 5,
+			          "handling" : 2,
+			          "durability" : 15,
+			          "weight" : 3
+			        },
+			        "item:quality" : 5,
+			        "item:size" : {
+			          "width" : 5,
+			          "height" : 8
+			        },
+			        "item:icon" : {
+			          "texture" : "rifle"
+			        },
+			        "item:display_name" : {
+			          "value" : "Rifle"
+			        },
+			        "item:description" : {
+			          "value" : "rifleDesc."
+			        }
+			      }
+			    }
+			  }
 ]

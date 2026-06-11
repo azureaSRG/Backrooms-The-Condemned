@@ -3,13 +3,18 @@ package com.github.azereaSRG.capstone.ItemScripts;
 public class Consumable extends Item {
     private int health, hunger, thirst, sanity, speed, strength, stamina;
 
+    public Consumable(String name, String description, String identifier,
+                      int rarity, int itemWidthInInventory, int itemHeightInInventory,
+                      int health, int hunger, int thirst, int sanity, int speed, int strength, int stamina
+                      ) {
+        this(name, description, rarity, itemWidthInInventory, itemHeightInInventory);
+        this.identifier = identifier;
+
+    }
+
     public Consumable(String name, String description, int rarity,
                       int itemWidthInInventory, int itemHeightInInventory) {
         super(name, description, rarity, itemWidthInInventory, itemHeightInInventory);
-    }
-
-    public Consumable(String name, String description, int rarity) {
-        this(name, description, rarity, 1, 1);
     }
 
     @Override
@@ -21,4 +26,6 @@ public class Consumable extends Item {
         super.pullDataFromJson();
 
     }
+
+
 }

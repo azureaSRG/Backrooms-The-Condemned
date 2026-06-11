@@ -1,5 +1,6 @@
 package com.github.azereaSRG.capstone.PlayerScripts;
 import com.github.azereaSRG.capstone.ItemScripts.Item;
+
 import java.util.ArrayList;
 
 public class Inventory {
@@ -63,6 +64,7 @@ class Backpack {
     }
 
     public void printBag() {
+
         for (Item[] row : backpack) {
             System.out.print("[");
             System.out.print(row[0]);

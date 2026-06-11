@@ -1,12 +1,15 @@
 package com.github.azereaSRG.capstone.ItemScripts;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Json;
+import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
 
 public class Item {
     protected String name;
     protected String description;
+    protected String identifier;
     protected int rarity;
     protected int itemWidthInInventory, itemHeightInInventory;
 
@@ -69,10 +72,9 @@ public class Item {
     public String toString() {
         return name;
     }
-}
 
-class ItemCreator{
-    Item createConsumable() {
-        Json json = new Json();
+    public void printItem() {
+        System.out.println("ID: " + identifier);
+        System.out.println("Name: " + name);
     }
 }

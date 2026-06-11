@@ -4,8 +4,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.azereaSRG.capstone.GameObject;
-import com.github.azereaSRG.capstone.ItemScripts.Item;
 import com.badlogic.gdx.math.Vector2;
+import com.github.azereaSRG.capstone.ItemScripts.Item;
+import com.github.azereaSRG.capstone.ItemScripts.ItemCreator;
+
 
 public class Player extends GameObject {
     protected static final float SCALE = 1 / 256f;
@@ -37,6 +39,9 @@ public class Player extends GameObject {
     public void setAttributesToStandard() {
         maxSpeed = 2;
         speed = maxSpeed;
+        Item newItem = ItemCreator.createItem();
+
+        inventory.backpack.addItem(newItem,0,0);
         accessInventory();
     }
 

@@ -199,20 +199,48 @@
     }
   },
   {
-    "id" : "item:almond_water",
+    "id" : "item:bandages",
     "version" : "0.0.1",
     "item:consumable" : {
       "description" : {
-        "identifier" : "item:almond_water"
+        "identifier" : "item:bandages"
       },
 
       "components" :
       {
         "item:one_time_buffs" : {
-          "health" : 20,
+          "health" : 50,
           "hunger" : 0,
-          "thirst" : 50,
-          "sanity" : 70,
+          "thirst" : 0,
+          "sanity" : 0,
+          "stamina" : 0
+        },
+        "item:quality" : 4,
+        "item:size" : {
+          "width" : 1,
+          "height" : 1
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Bandages"},
+        "item:description" : {"value" : "Bandages Desc."}
+      }
+    }
+  },
+  {
+    "id" : "item:adrenaline",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:adrenaline"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : -10,
+          "hunger" : 0,
+          "thirst" : 0,
+          "sanity" : 0,
           "stamina" : 50
         },
         "item:quality" : 5,
@@ -221,8 +249,8 @@
           "height" : 2
         },
         "item:icon" : {"texture" : null},
-        "item:display_name" : {"value" : "Almond Water"},
-        "item:description" : {"value" : "Almond Water Desc."}
+        "item:display_name" : {"value" : "Adrenaline"},
+        "item:description" : {"value" : "Adrenaline Desc."}
       }
     }
   }

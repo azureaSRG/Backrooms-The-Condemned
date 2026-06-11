@@ -27,4 +27,203 @@
       }
     }
   }
+  ,
+  {
+    "id" : "item:water_bottle",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:water_bottle"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : 0,
+          "hunger" : 0,
+          "thirst" : 30,
+          "sanity" : 0,
+          "stamina" : 0
+        },
+        "item:quality" : 2,
+        "item:size" : {
+          "width" : 1,
+          "height" : 2
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Water Bottle"},
+        "item:description" : {"value" : "Water Bottle Desc."}
+      }
+    }
+  }
+  ,
+  {
+    "id" : "item:energy_drink",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:energy_drink"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : -5,
+          "hunger" : 0,
+          "thirst" : 20,
+          "sanity" : 5,
+          "stamina" : 5
+        },
+        "item:quality" : 4,
+        "item:size" : {
+          "width" : 1,
+          "height" : 2
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Energy Drink"},
+        "item:description" : {"value" : "Energy Drink Desc."}
+      }
+    }
+  }
+  ,
+  {
+    "id" : "item:energy_bar",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:energy_bar"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : 0,
+          "hunger" : 10,
+          "thirst" : 0,
+          "sanity" : 0,
+          "stamina" : 10
+        },
+        "item:quality" : 3,
+        "item:size" : {
+          "width" : 1,
+          "height" : 2
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Energy Bar"},
+        "item:description" : {"value" : "Energy Bar Desc."}
+      }
+    }
+  },
+  {
+    "id" : "item:canned_food",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:canned_food"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : 0,
+          "hunger" : 40,
+          "thirst" : 5,
+          "sanity" : 0,
+          "stamina" : 0
+        },
+        "item:quality" : 4,
+        "item:size" : {
+          "width" : 2,
+          "height" : 1
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Canned Food"},
+        "item:description" : {"value" : "Canned Food Desc."}
+      }
+    }
+  },
+  {
+    "id" : "item:bag_of_chips",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:bag_of_chips"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : 0,
+          "hunger" : 30,
+          "thirst" : -10,
+          "sanity" : 5,
+          "stamina" : 0
+        },
+        "item:quality" : 3,
+        "item:size" : {
+          "width" : 3,
+          "height" : 4
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Bag of Chips"},
+        "item:description" : {"value" : "Bag of Chips Desc."}
+      }
+    }
+  },
+  {
+    "id" : "item:ramen_pack",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:ramen_pack"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : 40,
+          "hunger" : 0,
+          "thirst" : 0,
+          "sanity" : 0,
+          "stamina" : 0
+        },
+        "item:quality" : 3,
+        "item:size" : {
+          "width" : 2,
+          "height" : 2
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Ramen Pack"},
+        "item:description" : {"value" : "Ramen Pack Desc."}
+      }
+    }
+  },
+  {
+    "id" : "item:almond_water",
+    "version" : "0.0.1",
+    "item:consumable" : {
+      "description" : {
+        "identifier" : "item:almond_water"
+      },
+
+      "components" :
+      {
+        "item:one_time_buffs" : {
+          "health" : 20,
+          "hunger" : 0,
+          "thirst" : 50,
+          "sanity" : 70,
+          "stamina" : 50
+        },
+        "item:quality" : 5,
+        "item:size" : {
+          "width" : 1,
+          "height" : 2
+        },
+        "item:icon" : {"texture" : null},
+        "item:display_name" : {"value" : "Almond Water"},
+        "item:description" : {"value" : "Almond Water Desc."}
+      }
+    }
+  }
 ]

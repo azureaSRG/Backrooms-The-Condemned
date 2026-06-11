@@ -19,7 +19,7 @@ public Class Hound extends EnemyInterface.EntityClass implements {
   hearingRange = 5; // will not find players too easily, better to be in sight range than hearing range of fast critters
   public Hound(float x, float y, Player playerRef) {
       // to be implemented
-      texture = new Texture(); // to be filled in with hound texture
+      texture = new Texture(Gdx.files.internal("img here")); // to be filled in with hound texture
       super(x,y,texture,playerRef);
   }
 
@@ -41,5 +41,6 @@ public Class Hound extends EnemyInterface.EntityClass implements {
 
     public EntityClass spawn(Viewpoint viewpoint, Texture texture, Player player) {
         // need to know more (is there an enemy list to store all of the enemies created? What does the viewpoint do?)
+        // render here
     }
 }

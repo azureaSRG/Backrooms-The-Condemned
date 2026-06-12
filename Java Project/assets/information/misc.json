@@ -13,7 +13,7 @@
           "height" : 1
         },
         "item:icon" : {
-          "texture" : "batteries"
+          "texture" : "itemDesigns/tbd.png"
         },
         "item:display_name" : {
           "value" : "Batteries"
@@ -37,7 +37,7 @@
           "height" : 2
         },
         "item:icon" : {
-          "texture" : "pistol_ammo"
+          "texture" : "itemDesigns/tbd.png"
         },
         "item:display_name" : {
           "value" : "Pistol Ammo"
@@ -61,7 +61,7 @@
           "height" : 3
         },
         "item:icon" : {
-          "texture" : "rifle_ammo"
+          "texture" : "itemDesigns/tbd.png"
         },
         "item:display_name" : {
           "value" : "Rifle Ammo"

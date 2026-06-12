@@ -1,0 +1,26 @@
+{
+    "id" : "item:baseball_bat",
+    "version" : "0.0.1",
+    "item:utility" :
+    {
+      "description" : {
+        "identifier" : "item:liquid_flask"
+      },
+      
+        "item:quality" : 2,
+        "item:size" : {
+          "width" : 1,
+          "height" : 2
+        },
+        "item:icon" : {
+          "texture" : "liquid_flask"
+        },
+        "item:display_name" : {
+          "value" : "Liquid Flask"
+        },
+        "item:description" : {
+          "value" : "liquidFlaskDesc."
+        }
+      }
+    }
+  }

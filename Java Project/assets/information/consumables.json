@@ -50,7 +50,7 @@
           "width" : 1,
           "height" : 2
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/tbd.png"},
         "item:display_name" : {"value" : "Water Bottle"},
         "item:description" : {"value" : "Water Bottle Desc."}
       }
@@ -79,7 +79,7 @@
           "width" : 1,
           "height" : 2
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/Finalized Designs/energy_drink.png"},
         "item:display_name" : {"value" : "Energy Drink"},
         "item:description" : {"value" : "Energy Drink Desc."}
       }
@@ -108,7 +108,7 @@
           "width" : 1,
           "height" : 2
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/Finalized Designs/energy_bar.png"},
         "item:display_name" : {"value" : "Energy Bar"},
         "item:description" : {"value" : "Energy Bar Desc."}
       }
@@ -136,7 +136,7 @@
           "width" : 2,
           "height" : 1
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/Finalized Designs/canned_food1.png"},
         "item:display_name" : {"value" : "Canned Food"},
         "item:description" : {"value" : "Canned Food Desc."}
       }
@@ -164,7 +164,7 @@
           "width" : 3,
           "height" : 4
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/Finalized Designs/bag_of_chips.png"},
         "item:display_name" : {"value" : "Bag of Chips"},
         "item:description" : {"value" : "Bag of Chips Desc."}
       }
@@ -192,7 +192,7 @@
           "width" : 2,
           "height" : 2
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/Finalized Designs/ramen_pack.png"},
         "item:display_name" : {"value" : "Ramen Pack"},
         "item:description" : {"value" : "Ramen Pack Desc."}
       }
@@ -220,7 +220,7 @@
           "width" : 1,
           "height" : 1
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" :"itemDesigns/Finalized Designs/bandages.png"},
         "item:display_name" : {"value" : "Bandages"},
         "item:description" : {"value" : "Bandages Desc."}
       }
@@ -248,7 +248,7 @@
           "width" : 1,
           "height" : 2
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/Finalized Designs/adrenaline1.png"},
         "item:display_name" : {"value" : "Adrenaline"},
         "item:description" : {"value" : "Adrenaline Desc."}
       }

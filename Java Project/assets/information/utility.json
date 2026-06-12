@@ -15,7 +15,7 @@
           "height" : 2
         },
         "item:icon" : {
-          "texture" : "liquid_flask"
+          "texture" : "itemDesigns/tbd.png"
         },
         "item:display_name" : {
           "value" : "Liquid Flask"
@@ -40,7 +40,7 @@
           "height" : 2
         },
         "item:icon" : {
-          "texture" : "flashlight"
+          "texture" : "itemDesigns/tbd.png"
         },
         "item:display_name" : {
           "value" : "Flashlight"
@@ -64,7 +64,7 @@
           "height" : 2
         },
         "item:icon" : {
-          "texture" : "can_opener"
+          "texture" : "itemDesigns/Finalized Designs/can_opener.png"
         },
         "item:display_name" : {
           "value" : "Can Opener"
@@ -88,7 +88,7 @@
           "height" : 4
         },
         "item:icon" : {
-          "texture" : "medpack"
+          "texture" : "itemDesigns/Finalized Designs/medpack.png"
         },
         "item:display_name" : {
           "value" : "Medpack"
@@ -112,7 +112,7 @@
           "height" : 2
         },
         "item:icon" : {
-          "texture" : "first_aid"
+          "texture" : "itemDesigns/Finalized Designs/first_aid.png"
         },
         "item:display_name" : {
           "value" : "First Aid"
@@ -136,7 +136,7 @@
           "height" : 1
         },
         "item:icon" : {
-          "texture" : "lockpick"
+          "texture" : "itemDesigns/Finalized Designs/lockpick.png"
         },
         "item:display_name" : {
           "value" : "Lockpick"
@@ -160,7 +160,7 @@
           "height" : 1
         },
         "item:icon" : {
-          "texture" : "compass"
+          "texture" : "itemDesigns/Finalized Designs/compass.png"
         },
         "item:display_name" : {
           "value" : "Compass"
@@ -184,7 +184,7 @@
           "height" : 1
         },
         "item:icon" : {
-          "texture" : "clock"
+          "texture" : "itemDesigns/Finalized Designs/clock.png"
         },
         "item:display_name" : {
           "value" : "Clock"
@@ -208,7 +208,7 @@
           "height" : 2
         },
         "item:icon" : {
-          "texture" : "gps"
+          "texture" : "itemDesigns/Finalized Designs/gps.png"
         },
         "item:display_name" : {
           "value" : "GPS"

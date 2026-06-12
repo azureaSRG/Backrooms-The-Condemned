@@ -1,0 +1,74 @@
+[
+    {
+    "id" : "item:batteries",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:batteries"
+      },
+      
+        "item:quality" : 1,
+        "item:size" : {
+          "width" : 1,
+          "height" : 1
+        },
+        "item:icon" : {
+          "texture" : "batteries"
+        },
+        "item:display_name" : {
+          "value" : "Batteries"
+        },
+        "item:description" : {
+          "value" : "batteriesDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:pistol_ammo",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:pistol_ammo"
+      },
+      
+        "item:quality" : 1,
+        "item:size" : {
+          "width" : 1,
+          "height" : 2
+        },
+        "item:icon" : {
+          "texture" : "pistol_ammo"
+        },
+        "item:display_name" : {
+          "value" : "Pistol Ammo"
+        },
+        "item:description" : {
+          "value" : "pistolAmmoDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:rifle_ammo",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:rifle_ammo"
+      },
+      
+        "item:quality" : 1,
+        "item:size" : {
+          "width" : 1,
+          "height" : 3
+        },
+        "item:icon" : {
+          "texture" : "rifle_ammo"
+        },
+        "item:display_name" : {
+          "value" : "Rifle Ammo"
+        },
+        "item:description" : {
+          "value" : "rifleAmmoDesc."
+        }
+      }
+    }
+]

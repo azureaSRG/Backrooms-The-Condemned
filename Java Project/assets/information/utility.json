@@ -1,11 +1,13 @@
+[
 {
-    "id" : "item:baseball_bat",
+    "id" : "item:liquid_flask",
     "version" : "0.0.1",
-    "item:utility" :
-    {
+    "item:utility" :{
       "description" : {
         "identifier" : "item:liquid_flask"
       },
+      "components" : 
+      {
       
         "item:quality" : 2,
         "item:size" : {
@@ -23,4 +25,198 @@
         }
       }
     }
-  }
+    },
+    {
+    "id" : "item:flashlight",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:flashlight"
+      },
+      
+        "item:quality" : 3,
+        "item:size" : {
+          "width" : 1,
+          "height" : 2
+        },
+        "item:icon" : {
+          "texture" : "flashlight"
+        },
+        "item:display_name" : {
+          "value" : "Flashlight"
+        },
+        "item:description" : {
+          "value" : "flashlightDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:can_opener",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:can_opener"
+      },
+      
+        "item:quality" : 3,
+        "item:size" : {
+          "width" : 2,
+          "height" : 2
+        },
+        "item:icon" : {
+          "texture" : "can_opener"
+        },
+        "item:display_name" : {
+          "value" : "Can Opener"
+        },
+        "item:description" : {
+          "value" : "canOpenerDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:medpack",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:medpack"
+      },
+      
+        "item:quality" : 5,
+        "item:size" : {
+          "width" : 4,
+          "height" : 4
+        },
+        "item:icon" : {
+          "texture" : "medpack"
+        },
+        "item:display_name" : {
+          "value" : "Medpack"
+        },
+        "item:description" : {
+          "value" : "medpackDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:first_aid",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:first_aid"
+      },
+      
+        "item:quality" : 4,
+        "item:size" : {
+          "width" : 2,
+          "height" : 2
+        },
+        "item:icon" : {
+          "texture" : "first_aid"
+        },
+        "item:display_name" : {
+          "value" : "First Aid"
+        },
+        "item:description" : {
+          "value" : "firstAidDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:lockpick",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:lockpick"
+      },
+      
+        "item:quality" : 2,
+        "item:size" : {
+          "width" : 1,
+          "height" : 1
+        },
+        "item:icon" : {
+          "texture" : "lockpick"
+        },
+        "item:display_name" : {
+          "value" : "Lockpick"
+        },
+        "item:description" : {
+          "value" : "lockpickDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:compass",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:compass"
+      },
+      
+        "item:quality" : 2,
+        "item:size" : {
+          "width" : 1,
+          "height" : 1
+        },
+        "item:icon" : {
+          "texture" : "compass"
+        },
+        "item:display_name" : {
+          "value" : "Compass"
+        },
+        "item:description" : {
+          "value" : "compassDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:clock",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:clock"
+      },
+      
+        "item:quality" : 2,
+        "item:size" : {
+          "width" : 1,
+          "height" : 1
+        },
+        "item:icon" : {
+          "texture" : "clock"
+        },
+        "item:display_name" : {
+          "value" : "Clock"
+        },
+        "item:description" : {
+          "value" : "clockDesc."
+        }
+      }
+    },
+    {
+    "id" : "item:gps",
+    "version" : "0.0.1",
+    "item:utility" :{
+      "description" : {
+        "identifier" : "item:gps"
+      },
+      
+        "item:quality" : 5,
+        "item:size" : {
+          "width" : 2,
+          "height" : 2
+        },
+        "item:icon" : {
+          "texture" : "gps"
+        },
+        "item:display_name" : {
+          "value" : "GPS"
+        },
+        "item:description" : {
+          "value" : "gpsDesc."
+        }
+      }
+    }
+    
+]

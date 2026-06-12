@@ -24,7 +24,7 @@
           "height" : 7
         },
         "item:icon" : {
-          "texture" : "itemDesigns/tbd.png"
+          "texture" : "itemDesigns/Finalized Designs/baseball_bat.png"
         },
         "item:display_name" : {
           "value" : "Baseball Bat"
@@ -132,7 +132,7 @@
             "height" : 5
           },
           "item:icon" : {
-            "texture" : "itemDesigns/tbd.png"
+            "texture" : "itemDesigns/baton.png"
           },
           "item:display_name" : {
             "value" : "Baton"
@@ -204,7 +204,7 @@
             "height" : 6
           },
           "item:icon" : {
-            "texture" : "itemDesigns/tbd.png"
+            "texture" : "itemDesigns/machete.png"
           },
           "item:display_name" : {
             "value" : "Machete"

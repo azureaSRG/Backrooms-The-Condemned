@@ -132,7 +132,7 @@
             "height" : 5
           },
           "item:icon" : {
-            "texture" : "itemDesigns/baton.png"
+            "texture" : "itemDesigns/Finalized Designs/baton.png"
           },
           "item:display_name" : {
             "value" : "Baton"
@@ -204,7 +204,7 @@
             "height" : 6
           },
           "item:icon" : {
-            "texture" : "itemDesigns/machete.png"
+            "texture" : "itemDesigns/Finalized Designs/machete.png"
           },
           "item:display_name" : {
             "value" : "Machete"

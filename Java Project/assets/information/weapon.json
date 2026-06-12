@@ -24,7 +24,7 @@
           "height" : 7
         },
         "item:icon" : {
-          "texture" : "baseball_bat"
+          "texture" : "itemDesigns/tbd.png"
         },
         "item:display_name" : {
           "value" : "Baseball Bat"
@@ -60,7 +60,7 @@
           "height" : 6
         },
         "item:icon" : {
-          "texture" : "crowbar"
+          "texture" : "itemDesigns/tbd.png"
         },
         "item:display_name" : {
           "value" : "Crowbar"
@@ -96,7 +96,7 @@
           "height" : 8
         },
         "item:icon" : {
-          "texture" : "shovel"
+          "texture" : "itemDesigns/shovel.png"
         },
         "item:display_name" : {
           "value" : "Shovel"
@@ -132,7 +132,7 @@
             "height" : 5
           },
           "item:icon" : {
-            "texture" : "baton"
+            "texture" : "itemDesigns/tbd.png"
           },
           "item:display_name" : {
             "value" : "Baton"
@@ -168,7 +168,7 @@
           "height" : 3
         },
         "item:icon" : {
-          "texture" : "knife"
+          "texture" : "itemDesigns/Finalized Designs/knife1.png"
         },
         "item:display_name" : {
           "value" : "Knife"
@@ -204,7 +204,7 @@
             "height" : 6
           },
           "item:icon" : {
-            "texture" : "machete"
+            "texture" : "itemDesigns/tbd.png"
           },
           "item:display_name" : {
             "value" : "Machete"
@@ -240,7 +240,7 @@
             "height" : 4
           },
           "item:icon" : {
-            "texture" : "pistol"
+            "texture" : "itemDesigns/Finalized Designs/pistol.png"
           },
           "item:display_name" : {
             "value" : "Pistol"
@@ -276,7 +276,7 @@
             "height" : 8
           },
           "item:icon" : {
-            "texture" : "rifle"
+            "texture" : "itemDesigns/tbd.png"
           },
           "item:display_name" : {
             "value" : "Rifle"

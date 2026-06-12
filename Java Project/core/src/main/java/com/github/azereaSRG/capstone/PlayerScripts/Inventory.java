@@ -1,5 +1,6 @@
 package com.github.azereaSRG.capstone.PlayerScripts;
 import com.github.azereaSRG.capstone.ItemScripts.Item;
+import com.github.azereaSRG.capstone.ItemScripts.ItemCreator;
 
 import java.util.ArrayList;
 
@@ -61,6 +62,20 @@ class Backpack {
             return true;
         }
         return false;
+    }
+
+    public Item removeItem(int xPos, int yPos) {
+        Item item = new Item();
+        item = backpack[xPos][yPos];
+        int itemWidth = item.getItemWidth();
+        int itemHeight = item.getItemHeight();
+
+        for (int row = xPos; row < itemWidth; row++) {
+            for (int col = yPos; col < itemHeight; col++) {
+                backpack[row+xPos][col+yPos] = null;
+            }
+        }
+        return item;
     }
 
     public void printBag() {

@@ -1,5 +1,7 @@
 package com.github.azereaSRG.capstone.ItemScripts;
 
+import com.github.azereaSRG.capstone.PlayerScripts.Player;
+
 public class Consumable extends Item {
     private int health, hunger, thirst, sanity, speed, strength, stamina;
 
@@ -18,14 +20,13 @@ public class Consumable extends Item {
     }
 
     @Override
-    public void useItem() {
+    public void useItem(Player playerRef) {
+        playerRef.heal(health);
+        playerRef.addHunger(hunger);
+        playerRef.addThirst(thirst);
+        playerRef.addSanity(sanity);
+        playerRef.addStamina(stamina);
+
 
     }
-
-    protected void pullDataFromJson() {
-        super.pullDataFromJson();
-
-    }
-
-
 }

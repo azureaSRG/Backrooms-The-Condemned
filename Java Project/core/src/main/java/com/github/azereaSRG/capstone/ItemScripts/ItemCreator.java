@@ -1,7 +1,6 @@
 package com.github.azereaSRG.capstone.ItemScripts;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
@@ -37,8 +36,8 @@ public class ItemCreator {
         return null;
     }
 
-    public static Item createItem() {
-        String[] itemType = findType("item:almond_water","consumables","weapon");
+    public static Item createItem(String id) {
+        String[] itemType = findType(id,"consumables","weapon");
         String type = itemType[0];
         int index = Integer.parseInt(itemType[1]);
         Item item = new Item();
@@ -46,6 +45,9 @@ public class ItemCreator {
         switch (type) {
             case "consumables":
                 item = createConsumable(index);
+                break;
+            case "weapon":
+                break;
             default:
         }
         item.printItem();
@@ -75,11 +77,13 @@ public class ItemCreator {
         int speed = 0; int speedDuration = 0;
         int strength = 0; int strengthDuration = 0;
         try {
-
+            JsonValue persistentBuffs = components.get("persistent_buffs");
+            speed = persistentBuffs.getInt("speed");
+            speedDuration = persistentBuffs.getInt("speed_duration");
+            strength = persistentBuffs.getInt("strength");
+            strengthDuration = persistentBuffs.getInt("strength_duration");
         }
-        catch (RuntimeException e) {
-
-        }
+        catch (RuntimeException e) {}
 
         return new Consumable(name, description, identifier, quality, width, height,
             health, hunger, thirst, sanity, speed, strength, stamina);

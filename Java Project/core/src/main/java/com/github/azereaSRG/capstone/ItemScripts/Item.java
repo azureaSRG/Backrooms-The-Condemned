@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
+import com.github.azereaSRG.capstone.PlayerScripts.Player;
 
 public class Item {
     protected String name;
@@ -46,7 +47,7 @@ public class Item {
 
     }
 
-    public void useItem() {}
+    public void useItem(Player playerRef) {}
 
     protected void pullDataFromJson() {
         Json json = new Json();
@@ -76,5 +77,9 @@ public class Item {
     public void printItem() {
         System.out.println("ID: " + identifier);
         System.out.println("Name: " + name);
+    }
+
+    public String getName() {
+        return name;
     }
 }

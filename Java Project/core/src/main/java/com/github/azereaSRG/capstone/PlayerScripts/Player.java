@@ -14,8 +14,10 @@ public class Player extends GameObject {
     protected final Viewport gameViewport;
 
     //Player Attributes
-    protected int health, hunger, sanity, speed, strength, stamina;
-    protected int maxHealth, maxHunger, maxSanity, maxSpeed, maxStrength, maxStamina;
+    protected int health, hunger, sanity, thirst, speed, strength, stamina;
+    protected int maxHealth, maxHunger, maxThirst, maxSanity, maxSpeed, maxStrength, maxStamina;
+    protected int baseSpeed, baseStrength;
+    protected int speedBuffDuration, strengthBuffDuration;
     protected float infection;
     protected float infectionResistance;
 
@@ -39,9 +41,10 @@ public class Player extends GameObject {
     public void setAttributesToStandard() {
         maxSpeed = 2;
         speed = maxSpeed;
-        Item newItem = ItemCreator.createItem();
+        Item newItem = ItemCreator.createItem("item:almond_water");
 
         inventory.backpack.addItem(newItem,0,0);
+        useItem(0, 0);
         accessInventory();
     }
 
@@ -59,8 +62,11 @@ public class Player extends GameObject {
         move(deltaTime);
     }
 
-    public void useItem(Item item) {
-        item.useItem();
+
+    public void useItem(int leftBound, int topBound) {
+        Item item = inventory.backpack.removeItem(leftBound, topBound);
+        item.useItem(this);
+        System.out.println("Used " + item.getName());
     }
 
     private void move(float deltaTime) {
@@ -92,6 +98,50 @@ public class Player extends GameObject {
 
     public void heal(int amount) {
         health = Math.min(health + amount, maxHealth);
+    }
+
+    public void addHunger(int amount) {
+        hunger = Math.min(hunger + amount, maxHunger);
+    }
+
+    public void addThirst(int amount) {
+        thirst = Math.min(thirst + amount, maxThirst);
+    }
+
+    public void addSanity(int amount) {
+        sanity = Math.min(sanity + amount, maxSanity);
+    }
+
+    public void addStamina (int amount) {
+        stamina = Math.min(stamina + amount , stamina);
+    }
+
+    public void addSpeedBuff(int amount, int duration) {
+        maxSpeed += amount;
+        speedBuffDuration += duration;
+    }
+
+    public void addStrengthBuff(int amount, int duration) {
+        maxStrength += amount;
+        strengthBuffDuration += duration;
+    }
+
+    public void setSpeedBase() {
+        maxSpeed = baseSpeed;
+        speed = Math.min(speed, maxSpeed);
+    }
+
+    public void setStrengthBase() {
+        maxStrength = baseStrength;
+        strength = Math.min(strength, maxStrength);
+    }
+
+    public void setInfectionZero() {
+        infection = 0;
+    }
+
+    public void setInfection(float infectionAmount) {
+        infection = infectionAmount;
     }
 
     public void accessInventory() {

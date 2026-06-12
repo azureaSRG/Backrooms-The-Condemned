@@ -21,7 +21,7 @@
           "width" : 1,
           "height" : 2
         },
-        "item:icon" : {"texture" : null},
+        "item:icon" : {"texture" : "itemDesigns/almond_water.png"},
         "item:display_name" : {"value" : "Almond Water"},
         "item:description" : {"value" : "Almond Water Desc."}
       }

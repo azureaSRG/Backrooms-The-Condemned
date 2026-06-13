@@ -96,7 +96,7 @@
           "height" : 8
         },
         "item:icon" : {
-          "texture" : "itemDesigns/shovel.png"
+          "texture" : "itemDesigns/Finalized Designs/shovel.png"
         },
         "item:display_name" : {
           "value" : "Shovel"

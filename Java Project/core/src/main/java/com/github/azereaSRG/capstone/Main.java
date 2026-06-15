@@ -23,14 +23,22 @@ public class Main extends Game {
     private BitmapFont font;
 //    private Texture image;
     Texture txtre = new Texture(Gdx.files.internal("image.png"));
-    ArrayList<TextureRegion> images = ArrayList<>();
+    ArrayList<TextureRegion> spritesGroup = ArrayList<>(); //
 
     for (int y = 0; y <= txtre.getHeight(); y += 32) {
         for (int x = 0; x <= txtre.getWidth(); x += 32) {
-            images.add(new TextureRegion(txtre,x,y,32,32));
+            spritesGroup.add(new TextureRegion(txtre,x,y,32,32));
         }
     }
-    
+    TextureRegion[] sprites = new TextureRegion[spritesGroup.size()]; // switching from array to arraylist for memory purposes
+    int idx = 0;
+    while (spriteGroup.size() != 0) {
+        sprites[idx] = spriteGroup.get(0);
+        spriteGroup.remove(0);
+        idx++;
+    }
+    spriteGroup = null; // putting the final nail in the coffin, ensuring that the arraylist is not in memory
+    // Here's the directory to understand which image is where: https://docs.google.com/document/d/1DGIEMQykDGMB10f1zJIgpHOvHzTrI7V_-xx6WllAAMk/edit?tab=t.iydf63n7pe0x
 
     @Override
     public void create() {
@@ -55,9 +63,9 @@ public class Main extends Game {
         Camera camera = new PerspectiveCamera();
         Viewport viewport = new FitViewport(800,480, camera);
 
-        Player player = new Player(0,0, viewport, images.get(58));
+        Player player = new Player(0,0, viewport, sprites[58]);
 
-        Faceling.Stranger entity = new Faceling.Stranger(0,0,images.get(73), player);
+        Faceling.Stranger entity = new Faceling.Stranger(0,0,sprites[73], player);
         entity.runMain();
     }
 

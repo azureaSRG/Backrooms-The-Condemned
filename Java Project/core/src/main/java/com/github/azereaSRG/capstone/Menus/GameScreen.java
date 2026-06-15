@@ -18,7 +18,12 @@ import com.github.azereaSRG.capstone.PlayerScripts.Player;
 public class GameScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 16f;
     private static final float WORLD_HEIGHT = 9f;
+    private static final int DAY_LENGTH = 600; //in seconds
+    private static final int NIGHT_LENGTH = 600;
     private final Main game;
+    private static int dayCounter = 0;
+    private static boolean isNight = false;
+    private static float timer;
 
     private Batch batch;
     private Texture bgdTexture = new Texture(Gdx.files.internal("bgd.png"));
@@ -34,6 +39,7 @@ public class GameScreen extends ScreenAdapter {
     public GameScreen(Main game) {
         this.game = game;
         this.batch = game.getBatch();
+        timer = 0;
 
         bgdTexture.setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.Repeat);
     }
@@ -86,7 +92,8 @@ public class GameScreen extends ScreenAdapter {
     public void render(float deltaTime) {
         getPlayerInput();
         updatePlayer(deltaTime);
-
+        checkTimer(deltaTime);
+        
         ScreenUtils.clear(Color.BLACK);
 
         gameViewport.apply();
@@ -108,5 +115,13 @@ public class GameScreen extends ScreenAdapter {
     public void dispose() {
         bgdTexture.dispose();
         playerTexture.dispose();
+    }
+
+    public static void checkTimer(float timeIncrease) {
+        timer += timeIncrease;
+        if (!isNight && timer >= DAY_LENGTH) {isNight = true;}
+        if (timer > DAY_LENGTH + NIGHT_LENGTH) {
+            timer = 0;
+        }
     }
 }

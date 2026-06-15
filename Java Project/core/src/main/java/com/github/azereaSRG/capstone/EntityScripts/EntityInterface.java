@@ -25,7 +25,7 @@ public interface EntityInterface {
         protected String name, description;
         protected EntityStates behaviorState;
         protected ActionStates actionState;
-        protected int lethality;
+        protected int lethality; //Threat Level
         protected int maxHealth, maxStrength, maxStamina, maxSpeed;
         protected int health, strength, stamina, speed, acceleration;
         protected float attackRange, visionRange, hearingRange;

@@ -23,6 +23,8 @@ public interface EntityInterface {
         protected static final Vector2 TMP_VEC2 = new Vector2();
 
         protected String name, description;
+        protected EntityStates behaviorState;
+        protected ActionStates actionState;
         protected int lethality;
         protected int maxHealth, maxStrength, maxStamina, maxSpeed;
         protected int health, strength, stamina, speed, acceleration;
@@ -59,7 +61,7 @@ public interface EntityInterface {
     }
 
     enum EntityStates {
-        SCARED,
+        SCARED, //ORD 0
         DOCILE,
         NEUTRAL,
         HOSTILE

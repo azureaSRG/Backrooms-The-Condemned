@@ -32,22 +32,26 @@ public class Faceling {
             aggression = (float) (isRacist ? 0.5 : 0.15);
         }
 
-        protected boolean playerCloseby() {
-            super.getCenter(new Vector2(this.rect.x,this.rect.y));
-            return false;
+        protected float playerDistance() {
+            Vector2 loc = super.getCenter(new Vector2());
+            Vector2 playerLoc = player.getCenter(new Vector2());
+            return loc.dist(playerLoc);
         }
     }
 
     public static class Stranger extends FacelingInterface {
+        private float attackCooldown;
         public Stranger(float x, float y, Texture texture, Player playerRef) {
             super(x, y, texture, playerRef);
             actionState = ActionStates.WANDERING;
             behaviorState = bond <= 0.25 ? EntityStates.HOSTILE : EntityStates.NEUTRAL;
+            attackCooldown = 0f;
         }
 
         @Override
         public void attack() {
-
+            player.damage(this.strength);
+            attackCooldown = 1.5f;
         }
 
         @Override
@@ -57,12 +61,15 @@ public class Faceling {
 
         @Override
         public void wander() {
-
+            if (super.playerDistance() < 50f) {
+                
+            }
         }
 
         @Override
         public void update(float deltaTime) {
             super.update(deltaTime);
+            attackCooldown -= deltaTime;
             updateAction();
             runAction();
         }
@@ -70,16 +77,21 @@ public class Faceling {
         private void updateAction() {
             switch(actionState) {
                 case WANDERING:
+                    wander();
                     break;
                 case FLEEING:
+                    flee();
                     break;
                 case FIGHTING:
+                    if (attackCooldown < 0 && this.isColliding(player)) {
+                        attack();
+                    }
                     break;
             }
         }
 
         private void runAction() {
-
+        
         }
 
         public void takeDamage(int amount) {
@@ -89,7 +101,7 @@ public class Faceling {
         }
 
         private void killEntity() {
-
+            
         }
 
         public void runMain() {

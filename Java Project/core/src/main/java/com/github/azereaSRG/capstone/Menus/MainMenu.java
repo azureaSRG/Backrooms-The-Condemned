@@ -25,7 +25,7 @@ public class MainMenu extends ScreenAdapter {
         this.game = game;
         this.batch = game.getBatch();
         this.font = game.getFont();
-        Texture title = new Texture(Gdx.files.internal(""));
+//        Texture title = new Texture(Gdx.files.internal(""));
     }
 
     @Override

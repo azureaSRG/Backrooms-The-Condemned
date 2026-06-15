@@ -41,15 +41,17 @@ public class Player extends GameObject {
     public void setAttributesToStandard() {
         maxSpeed = 2;
         speed = maxSpeed;
-        Item newItem = ItemCreator.createItem("item:almond_water");
+        testInventory();
 
-        inventory.backpack.addItem(newItem,0,0);
-        useItem(0, 0);
-        accessInventory();
     }
 
     private void testInventory() {
-//        inventory.backpack.addItem();
+        inventory.backpack.addItem(ItemCreator.createItem("item:almond_water"),0,0);
+        inventory.backpack.addItem(ItemCreator.createItem("item:ramen_pack"),2,2);
+
+        accessInventory();
+        useItem(0, 0);
+        accessInventory();
     }
 
     public void reset(float x, float y) {
@@ -145,7 +147,7 @@ public class Player extends GameObject {
     }
 
     public void accessInventory() {
-        System.out.println("Inventory Accessed");
+//        System.out.println("Inventory Accessed");
         inventory.backpack.printBag();
     }
 }

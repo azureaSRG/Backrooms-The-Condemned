@@ -11,7 +11,7 @@ public abstract class GameObject {
 
     public GameObject(float x, float y, float w, float h, Texture texture) {
         this.rect = new Rectangle(x, y, w, h);
-        this.texture =texture;
+        this.texture = texture;
     }
 
     public GameObject(float x, float y, float w, float h) {

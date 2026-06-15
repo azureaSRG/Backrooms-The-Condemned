@@ -10,6 +10,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.github.azereaSRG.capstone.EntityScripts.Faceling;
+import com.github.azereaSRG.capstone.EntityScripts.Faceling.*;
 import com.github.azereaSRG.capstone.Main;
 import com.github.azereaSRG.capstone.PlayerScripts.Player;
 
@@ -20,12 +22,14 @@ public class GameScreen extends ScreenAdapter {
 
     private Batch batch;
     private Texture bgdTexture = new Texture(Gdx.files.internal("bgd.png"));
-    private Texture playerTexture = new Texture(Gdx.files.internal("larry/larry-front-sprite.png"));
+    private Texture playerTexture = new Texture(Gdx.files.internal("larry/larry-front-sprite(Single).png"));
     private Viewport gameViewport = new ExtendViewport(WORLD_WIDTH, WORLD_HEIGHT);
     private final Vector2 inputMovement = new Vector2();
 
     private final Player player = new Player(WORLD_WIDTH/2f, WORLD_HEIGHT/2f,
         gameViewport, playerTexture);
+
+    private final FacelingInterface enemy = new Stranger(0,0,new Texture(Gdx.files.internal("enemies/blue_and_girl_stranger_shopkeeper_front.png")),player);
 
     public GameScreen(Main game) {
         this.game = game;
@@ -95,6 +99,7 @@ public class GameScreen extends ScreenAdapter {
         batch.draw(bgdTexture, 0, 0, gameViewport.getWorldWidth()
             , gameViewport.getWorldHeight(), 0, 0, uW, vH);
         player.draw(batch);
+//        enemy.draw(batch);
 
         batch.end();
     }

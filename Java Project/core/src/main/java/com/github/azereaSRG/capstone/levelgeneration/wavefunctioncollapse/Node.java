@@ -92,16 +92,40 @@ class EmptyNode {
 
 class BranchNode {
     static class TPieceU extends Node {
-
+        public TPieceU() {
+            name = "";
+            top = ConnectionType.ROAD;
+            bottom = ConnectionType.GRASS;
+            left = ConnectionType.ROAD;
+            right = ConnectionType.ROAD;
+        }
     }
     static class TPieceR extends Node {
-
+        public TPieceR() {
+            name = "";
+            top = ConnectionType.ROAD;
+            bottom = ConnectionType.ROAD;
+            left = ConnectionType.GRASS;
+            right = ConnectionType.ROAD;
+        }
     }
     static class TPieceB extends Node {
-
+        public TPieceB() {
+            name = "T";
+            top = ConnectionType.GRASS;
+            bottom = ConnectionType.ROAD;
+            left = ConnectionType.ROAD;
+            right = ConnectionType.ROAD;
+        }
     }
     static class TPieceL extends Node {
-
+        public TPieceL() {
+            name = "";
+            top = ConnectionType.ROAD;
+            bottom = ConnectionType.ROAD;
+            left = ConnectionType.ROAD;
+            right = ConnectionType.GRASS;
+        }
     }
     static class Plus extends Node {
 

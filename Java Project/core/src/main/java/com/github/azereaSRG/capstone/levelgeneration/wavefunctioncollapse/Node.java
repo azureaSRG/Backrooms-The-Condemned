@@ -24,8 +24,8 @@ class StraightNode{
             name = "-";
             top = ConnectionType.GRASS;
             bottom = ConnectionType.GRASS;
-            left = ConnectionType.GRASS;
-            right = ConnectionType.GRASS;
+            left = ConnectionType.ROAD;
+            right = ConnectionType.ROAD;
         }
     }
     static class Vertical extends Node{
@@ -128,6 +128,12 @@ class BranchNode {
         }
     }
     static class Plus extends Node {
-
+        public Plus() {
+            name = "+";
+            top = ConnectionType.ROAD;
+            bottom = ConnectionType.ROAD;
+            left = ConnectionType.ROAD;
+            right = ConnectionType.ROAD;
+        }
     }
 }

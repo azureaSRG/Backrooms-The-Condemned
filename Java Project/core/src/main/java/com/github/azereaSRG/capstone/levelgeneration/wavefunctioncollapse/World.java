@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Random;
 
 /**
- * I have Wave Function
+ * defines the types of connections allowed by the nodes in each of the edges
  */
 class NodeDefinition {
     ConnectionType top;
@@ -16,11 +16,18 @@ class NodeDefinition {
     ConnectionType right;
 }
 
+/**
+ * creates the initial spawn area for the player using a wave function collapse algorithm
+*/
 public class World {
+    //dimensions of the inital world spawn
     private int width = 10;
     private int height = 10;
 
+    //inital world spawn
     private Node[][] world;
+    
+    //contains all the possible node classes that can be placed in any given position
     private List<Class<? extends Node>> nodes = new ArrayList<>(List.of(
         StraightNode.Horizontal.class,
         StraightNode.Vertical.class,
@@ -28,11 +35,19 @@ public class World {
         CurvedNode.RPiece.class,
         CurvedNode.MLPiece.class,
         CurvedNode.MRPiece.class,
+        BranchNode.TPieceU.class,
+        BranchNode.TPieceR.class,
+        BranchNode.TPieceB.class,
+        BranchNode.TPieceL.class,
+        BranchNode.Plus.class,
         EmptyNode.Empty.class
     ));
+
+    //stored list of all the nodes that can collapse
     private List<Vector2> toCollapse = new ArrayList<>();
     private Random rand = new Random();
 
+    //possible neighboring nodes
     Vector2[] offsets = new Vector2[] {
         new Vector2(0,1),   //Top
         new Vector2(0, -1), //Bottom
@@ -40,11 +55,17 @@ public class World {
         new Vector2(-1,0)   //Left
     };
 
+    //generates the world
     public void generate() {
         world = new Node[width][height];
         collapse();
     }
 
+    /**
+     * @param - None
+     * @return - void
+     * @desc - starts from one position and collapses neighboring nodes until the grid is fulfilled
+    */
     private void collapse() {
         toCollapse.clear();
         toCollapse.add(new Vector2((int) (width/2),(int) (height/2)));
@@ -120,6 +141,7 @@ public class World {
         }
     }
 
+    //throws a NoCompatibleNodesException
     private void noCompatibleNodes(int x, int y) throws RuntimeException{
         throw new NoCompatibleNodes("Attempted to collapse wave on " + x + ", " + y +
             " but found no compatible nodes.");
@@ -130,6 +152,9 @@ public class World {
         return (v2.x > -1 && v2.x < width && v2.y > -1 && v2.y < height);
     }
 
+    /**
+     * filters down the potential nodes for the collapse
+     */
     private void filterCandidates(
         ArrayList<Class<? extends Node>> candidates,
         Node neighbor,
@@ -176,6 +201,9 @@ public class World {
         }
     }
 
+    /**
+     * prints out the world according to names
+     */
     public void print() {
         for (Node[] row : world) {
             for (Node node : row) {

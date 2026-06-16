@@ -1,4 +1,4 @@
-package com.github.azereaSRG.capstone.Menus;
+package com.github.azereaSRG.capstone.gamemenus;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -10,10 +10,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.github.azereaSRG.capstone.EntityScripts.Faceling;
-import com.github.azereaSRG.capstone.EntityScripts.Faceling.*;
+import com.github.azereaSRG.capstone.entityutil.Faceling.*;
 import com.github.azereaSRG.capstone.Main;
-import com.github.azereaSRG.capstone.PlayerScripts.Player;
+import com.github.azereaSRG.capstone.playerutil.Player;
 
 public class GameScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 16f;
@@ -93,7 +92,7 @@ public class GameScreen extends ScreenAdapter {
         getPlayerInput();
         updatePlayer(deltaTime);
         checkTimer(deltaTime);
-        
+
         ScreenUtils.clear(Color.BLACK);
 
         gameViewport.apply();

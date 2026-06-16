@@ -1,9 +1,10 @@
-package com.github.azereaSRG.capstone.EntityScripts;
+package com.github.azereaSRG.capstone.entityutil;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
 import com.github.azereaSRG.capstone.GameObject;
-import com.github.azereaSRG.capstone.PlayerScripts.Player;
+import com.github.azereaSRG.capstone.playerutil.Player;
+import com.github.azereaSRG.capstone.Tag;
 
 public interface EntityInterface {
 
@@ -32,6 +33,7 @@ public interface EntityInterface {
 
         public EntityClass(float x, float y, Texture texture, Player playerRef) {
             super(x, y, texture, playerRef);
+            this.tag = Tag.ENEMY;
         }
 
         public String getName() {return name;}

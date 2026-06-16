@@ -8,16 +8,15 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.badlogic.gdx.graphics.g2d.TextureRegion; // Texture Region
-import com.github.azereaSRG.capstone.EntityScripts.Faceling;
-import com.github.azereaSRG.capstone.Menus.MainMenu;
-import com.github.azereaSRG.capstone.PlayerScripts.Player;
+import com.github.azereaSRG.capstone.entityutil.Faceling;
+import com.github.azereaSRG.capstone.gamemenus.MainMenu;
+import com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.NoCompatibleNodes;
+import com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.World;
+import com.github.azereaSRG.capstone.playerutil.Player;
 
-import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.ArrayList;
 
 /** {@link com.badlogic.gdx.ApplicationListener} implementation shared by all platforms. */
@@ -74,6 +73,10 @@ public class Main extends Game {
 
         Faceling.Stranger entity = new Faceling.Stranger(0,0,sprites[73].getTexture(), player);
         entity.runMain();
+
+        World world = new World();
+        world.generate();
+        world.print();
     }
 
     public Batch getBatch() {

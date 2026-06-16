@@ -1,13 +1,10 @@
-package com.github.azereaSRG.capstone.EntityScripts;
+package com.github.azereaSRG.capstone.entityutil;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.Vector2;
-import com.github.azereaSRG.capstone.ItemScripts.Item;
-import com.github.azereaSRG.capstone.PlayerScripts.Player;
+import com.github.azereaSRG.capstone.itemutil.Item;
+import com.github.azereaSRG.capstone.playerutil.Player;
 
-import javax.swing.*;
-import javax.swing.text.html.parser.Entity;
-import java.util.Enumeration;
 import java.util.HashMap;
 
 public class Faceling {
@@ -35,7 +32,7 @@ public class Faceling {
         protected float playerDistance() {
             Vector2 loc = super.getCenter(new Vector2());
             Vector2 playerLoc = player.getCenter(new Vector2());
-            return loc.dist(playerLoc);
+            return loc.dst(playerLoc);
         }
     }
 
@@ -62,7 +59,7 @@ public class Faceling {
         @Override
         public void wander() {
             if (super.playerDistance() < 50f) {
-                
+
             }
         }
 
@@ -91,7 +88,7 @@ public class Faceling {
         }
 
         private void runAction() {
-        
+
         }
 
         public void takeDamage(int amount) {
@@ -101,11 +98,11 @@ public class Faceling {
         }
 
         private void killEntity() {
-            
+
         }
 
         public void runMain() {
-            System.out.println(this.health);
+//            System.out.println(this.health);
         }
     }
     public static class Butcher extends FacelingInterface {

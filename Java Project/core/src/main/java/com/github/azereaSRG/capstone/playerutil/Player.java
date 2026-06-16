@@ -1,12 +1,13 @@
-package com.github.azereaSRG.capstone.PlayerScripts;
+package com.github.azereaSRG.capstone.playerutil;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.azereaSRG.capstone.GameObject;
 import com.badlogic.gdx.math.Vector2;
-import com.github.azereaSRG.capstone.ItemScripts.Item;
-import com.github.azereaSRG.capstone.ItemScripts.ItemCreator;
+import com.github.azereaSRG.capstone.itemutil.Item;
+import com.github.azereaSRG.capstone.itemutil.ItemCreator;
+import com.github.azereaSRG.capstone.Tag;
 
 
 public class Player extends GameObject {
@@ -32,6 +33,7 @@ public class Player extends GameObject {
     public Player(float x, float y, Viewport gameViewport, Texture texture) {
         super(x, y, texture.getWidth() * SCALE, texture.getHeight() * SCALE, texture);
         this.gameViewport = gameViewport;
+        this.tag = Tag.PLAYER;
         inventory = new Inventory(5, 5);
 
         //TESTING PURPOSES
@@ -41,8 +43,7 @@ public class Player extends GameObject {
     public void setAttributesToStandard() {
         maxSpeed = 2;
         speed = maxSpeed;
-        testInventory();
-
+//        testInventory();
     }
 
     private void testInventory() {

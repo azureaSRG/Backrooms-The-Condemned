@@ -1,6 +1,6 @@
-package com.github.azereaSRG.capstone.ItemScripts;
+package com.github.azereaSRG.capstone.itemutil;
 
-import com.github.azereaSRG.capstone.PlayerScripts.Player;
+import com.github.azereaSRG.capstone.playerutil.Player;
 
 public class Consumable extends Item {
     private int health, hunger, thirst, sanity, speed, strength, stamina;

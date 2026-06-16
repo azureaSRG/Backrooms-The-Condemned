@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 public abstract class GameObject {
     protected final Rectangle rect;
     protected Texture texture;
+    protected Tag tag;
 
     public GameObject(float x, float y, float w, float h, Texture texture) {
         this.rect = new Rectangle(x, y, w, h);

@@ -1,11 +1,8 @@
-package com.github.azereaSRG.capstone.ItemScripts;
+package com.github.azereaSRG.capstone.itemutil;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.Json;
-import com.badlogic.gdx.utils.JsonReader;
 import com.badlogic.gdx.utils.JsonValue;
-import com.github.azereaSRG.capstone.PlayerScripts.Player;
+import com.github.azereaSRG.capstone.playerutil.Player;
 
 public class Item {
     protected String name;

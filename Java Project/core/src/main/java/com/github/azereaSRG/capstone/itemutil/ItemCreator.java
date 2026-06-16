@@ -1,4 +1,4 @@
-package com.github.azereaSRG.capstone.ItemScripts;
+package com.github.azereaSRG.capstone.itemutil;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.utils.Json;

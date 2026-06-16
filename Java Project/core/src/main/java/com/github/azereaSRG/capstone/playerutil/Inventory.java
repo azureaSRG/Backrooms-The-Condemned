@@ -1,6 +1,5 @@
-package com.github.azereaSRG.capstone.PlayerScripts;
-import com.github.azereaSRG.capstone.ItemScripts.Item;
-import com.github.azereaSRG.capstone.ItemScripts.ItemCreator;
+package com.github.azereaSRG.capstone.playerutil;
+import com.github.azereaSRG.capstone.itemutil.Item;
 
 import java.util.ArrayList;
 

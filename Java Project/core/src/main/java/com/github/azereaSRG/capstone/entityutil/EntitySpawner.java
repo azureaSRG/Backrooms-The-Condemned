@@ -1,4 +1,4 @@
-package com.github.azereaSRG.capstone.EntityScripts;
+package com.github.azereaSRG.capstone.entityutil;
 
 import java.util.ArrayList;
 
@@ -7,10 +7,10 @@ public class EntitySpawner {
     private static ArrayList<EntityInterface.EntityClass> entities = new ArrayList<>();
 
     public static void spawnEntity(EntityInterface.EntityClass entity) {
-        
+
     }
 
     public static void spawnEntity(EntityInterface.EntityClass entity, float x, float y) {
-        
+
     }
 }

@@ -1,7 +1,7 @@
-package com.github.azereaSRG.capstone.EntityScripts;
+package com.github.azereaSRG.capstone.entityutil;
 
 import com.badlogic.gdx.Gdx;
-import com.github.azereaSRG.capstone.PlayerScripts.Player;
+import com.github.azereaSRG.capstone.playerutil.Player;
 import com.badlogic.gdx.graphics.Texture;
 
 public class Hound extends EntityInterface.EntityClass implements EntityInterface {

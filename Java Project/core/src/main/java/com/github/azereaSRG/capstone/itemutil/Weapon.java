@@ -1,6 +1,4 @@
-package com.github.azereaSRG.capstone.ItemScripts;
-
-import com.github.azereaSRG.capstone.ItemScripts.Item;
+package com.github.azereaSRG.capstone.itemutil;
 
 public class Weapon extends Item {
     private float damage, range, firingInterval, handling, durability, weight;

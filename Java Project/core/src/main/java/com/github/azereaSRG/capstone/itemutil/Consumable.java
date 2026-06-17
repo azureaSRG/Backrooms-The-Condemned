@@ -11,6 +11,11 @@ public class Consumable extends Item {
                       ) {
         this(name, description, rarity, itemWidthInInventory, itemHeightInInventory);
         this.identifier = identifier;
+        this.health = health;
+        this.hunger = hunger;
+        this.sanity = sanity;
+        this.speed = speed;
+        this.stamina = stamina;
 
     }
 
@@ -26,7 +31,5 @@ public class Consumable extends Item {
         playerRef.addThirst(thirst);
         playerRef.addSanity(sanity);
         playerRef.addStamina(stamina);
-
-
     }
 }

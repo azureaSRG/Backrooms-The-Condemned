@@ -34,6 +34,7 @@ public class Player extends GameObject {
         super(x, y, texture.getWidth() * SCALE, texture.getHeight() * SCALE, texture);
 
         this.tag = Tag.PLAYER;
+
         inventory = new Inventory(5, 5);
 
         //TESTING PURPOSES
@@ -43,18 +44,21 @@ public class Player extends GameObject {
     }
 
     public void setAttributesToStandard() {
-        maxSpeed = 5;
+        maxSpeed = 10;
+        this.maxHealth = 100;
+        this.health = 100;
         speed = maxSpeed;
-//        testInventory();
+        testInventory();
     }
 
     private void testInventory() {
         inventory.backpack.addItem(ItemCreator.createItem("item:almond_water"),0,0);
         inventory.backpack.addItem(ItemCreator.createItem("item:ramen_pack"),2,2);
+        inventory.backpack.addItem(ItemCreator.createItem("item:water_bottle"),1,0);
 
-        accessInventory();
-        useItem(0, 0);
-        accessInventory();
+//        accessInventory();
+//        useItem(0, 0);
+//        accessInventory();
     }
 
     public void reset(float x, float y) {
@@ -73,6 +77,7 @@ public class Player extends GameObject {
         Item item = inventory.backpack.removeItem(leftBound, topBound);
         item.useItem(this);
         System.out.println("Used " + item.getName());
+
     }
 
     private void move(float deltaTime) {
@@ -86,6 +91,7 @@ public class Player extends GameObject {
 
         rect.setPosition(xDir, yDir);
 //        System.out.println("MOVE: " + rect.x + ", " + rect.y);
+
     }
 
     public void updateDirection(Vector2 newDirection) {
@@ -93,17 +99,22 @@ public class Player extends GameObject {
     }
 
     private void killPlayer() {
+        System.out.println("Player Killed");
         texture.dispose();
     }
 
     public void damage(int amount) {
         health -= amount;
+        System.out.println("Player Health: " + health);
         if (health <= 0) killPlayer();
-        System.out.println("Player Killed");
+
     }
 
     public void heal(int amount) {
-        health = Math.min(health + amount, maxHealth);
+        health += amount;
+        health = Math.min(health, maxHealth);
+        System.out.println("Player healed for " + health + " health!");
+        System.out.println("Health: " + health);
     }
 
     public void addHunger(int amount) {
@@ -119,7 +130,7 @@ public class Player extends GameObject {
     }
 
     public void addStamina (int amount) {
-        stamina = Math.min(stamina + amount , stamina);
+        stamina = Math.min(stamina + amount , maxStamina);
     }
 
     public void addSpeedBuff(int amount, int duration) {

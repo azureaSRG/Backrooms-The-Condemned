@@ -115,6 +115,7 @@ public class World {
 
     //generates world
     public void generate() {
+        System.out.println("Generating World...");
         grid = new Cell[width][height];
         boolean[][] roadMask;
         roadMask = createBackbone();
@@ -215,7 +216,7 @@ public class World {
                     noCompatibleNodes(nx, ny);
                 }
                 catch (Exception e) {
-                    System.out.println(" Defaulted to Backup Cell");
+                    System.out.println(" Defaulted to Backup Cell... Issue has been Resolved.");
                     newSet.add(TileType.BACKUP); //sets cell to empty / backup
                 }
             }

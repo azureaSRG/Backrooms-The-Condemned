@@ -1,7 +1,5 @@
 package com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse;
 
-import com.badlogic.gdx.math.Vector2;
-
 import java.util.*;
 
 public class Cell {

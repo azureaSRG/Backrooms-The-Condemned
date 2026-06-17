@@ -44,7 +44,9 @@ public class Item {
 
     }
 
-    public void useItem(Player playerRef) {}
+    public void useItem(Player playerRef) {
+        System.out.println("Base Item");
+    }
 
     protected void pullDataFromJson() {
         Json json = new Json();

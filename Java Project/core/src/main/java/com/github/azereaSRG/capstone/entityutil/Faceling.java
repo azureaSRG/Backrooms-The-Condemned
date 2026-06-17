@@ -43,6 +43,7 @@ public class Faceling {
             actionState = ActionStates.WANDERING;
             behaviorState = bond <= 0.25 ? EntityStates.HOSTILE : EntityStates.NEUTRAL;
             attackCooldown = 0f;
+            this.strength = 20;
         }
 
         @Override
@@ -67,8 +68,12 @@ public class Faceling {
         public void update(float deltaTime) {
             super.update(deltaTime);
             attackCooldown -= deltaTime;
-            updateAction();
-            runAction();
+
+            if (this.isColliding(player) && attackCooldown < 0) {
+                attack();
+            }
+//            updateAction();
+//            runAction();
         }
 
         private void updateAction() {

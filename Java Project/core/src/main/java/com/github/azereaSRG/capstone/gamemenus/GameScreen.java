@@ -88,7 +88,7 @@ public class GameScreen extends ScreenAdapter {
         player = new Player(world.getWidth() / 2f, world.getHeight() / 2f,
             gameViewport, playerTexture);
         enemy = new Stranger(0,0,new Texture(Gdx.files.internal(
-            "enemies/blue_and_girl_stranger_shopkeeper_front.png"))
+            "itemDesigns/Finalized Designs/lilguy.png"))
             ,player);
         bgdTexture.setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.Repeat);
     }
@@ -112,6 +112,11 @@ public class GameScreen extends ScreenAdapter {
          if (Gdx.input.isKeyJustPressed(Input.Keys.E)) {
             player.accessInventory();
             return;
+         }
+         if (Gdx.input.isKeyJustPressed(Input.Keys.X)) {
+             player.useItem(0,0);
+
+             return;
          }
          playerMovementInputs();
     }
@@ -172,7 +177,8 @@ public class GameScreen extends ScreenAdapter {
         player.draw(batch);
 
 
-//        enemy.draw(batch);
+        enemy.draw(batch);
+        enemy.update(deltaTime);
 
 
         batch.end();

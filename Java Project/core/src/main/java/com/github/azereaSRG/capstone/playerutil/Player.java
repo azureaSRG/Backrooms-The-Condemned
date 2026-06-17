@@ -11,7 +11,7 @@ import com.github.azereaSRG.capstone.Tag;
 
 
 public class Player extends GameObject {
-    protected static final float SCALE = 1 / 265f;
+    protected static final float SCALE = 1 / 256f;
     protected final Viewport gameViewport;
 
     //Player Attributes
@@ -90,8 +90,19 @@ public class Player extends GameObject {
         yDir = MathUtils.clamp(yDir, 0, gameViewport.getWorldHeight() - rect.getHeight());
 
         rect.setPosition(xDir, yDir);
+        checkDuration(deltaTime);
 //        System.out.println("MOVE: " + rect.x + ", " + rect.y);
 
+    }
+
+    private void checkDuration(float deltaTime) {
+        speedBuffDuration -= deltaTime;
+        strengthBuffDuration -= deltaTime;
+        if (strengthBuffDuration < 0) strength = baseStrength;
+        if (speedBuffDuration < 0) {
+            maxSpeed = baseSpeed;
+            speed = maxSpeed;
+        }
     }
 
     public void updateDirection(Vector2 newDirection) {

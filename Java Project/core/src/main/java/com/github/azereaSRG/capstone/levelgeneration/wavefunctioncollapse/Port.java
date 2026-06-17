@@ -1,6 +1,6 @@
 package com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse;
 
-public enum ConnectionType {
+public enum Port {
     ROAD,
     GRASS
 }

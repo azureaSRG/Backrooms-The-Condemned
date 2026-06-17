@@ -25,6 +25,7 @@ public abstract class GameObject {
 
     public void draw(Batch batch) {
         if (texture == null) {return;}
+//        System.out.println("DRAW: " + rect.x + ", " + rect.y);
         batch.draw(texture, rect.x, rect.y, rect.width, rect.height);
     }
 

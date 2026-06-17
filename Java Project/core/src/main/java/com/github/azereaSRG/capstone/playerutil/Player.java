@@ -11,7 +11,7 @@ import com.github.azereaSRG.capstone.Tag;
 
 
 public class Player extends GameObject {
-    protected static final float SCALE = 1 / 256f;
+    protected static final float SCALE = 1 / 265f;
     protected final Viewport gameViewport;
 
     //Player Attributes
@@ -32,16 +32,18 @@ public class Player extends GameObject {
 
     public Player(float x, float y, Viewport gameViewport, Texture texture) {
         super(x, y, texture.getWidth() * SCALE, texture.getHeight() * SCALE, texture);
-        this.gameViewport = gameViewport;
+
         this.tag = Tag.PLAYER;
         inventory = new Inventory(5, 5);
 
         //TESTING PURPOSES
+        System.out.println("Viewport passed to player: " + gameViewport);
+        this.gameViewport = gameViewport;
         setAttributesToStandard();
     }
 
     public void setAttributesToStandard() {
-        maxSpeed = 2;
+        maxSpeed = 5;
         speed = maxSpeed;
 //        testInventory();
     }
@@ -57,6 +59,7 @@ public class Player extends GameObject {
 
     public void reset(float x, float y) {
         rect.setPosition(x, y);
+        System.out.println("RESETTING PLAYER");
         health = maxHealth;
     }
 
@@ -82,8 +85,8 @@ public class Player extends GameObject {
         yDir = MathUtils.clamp(yDir, 0, gameViewport.getWorldHeight() - rect.getHeight());
 
         rect.setPosition(xDir, yDir);
+//        System.out.println("MOVE: " + rect.x + ", " + rect.y);
     }
-
 
     public void updateDirection(Vector2 newDirection) {
         moveDirection.set(newDirection);
@@ -150,5 +153,13 @@ public class Player extends GameObject {
     public void accessInventory() {
 //        System.out.println("Inventory Accessed");
         inventory.backpack.printBag();
+    }
+
+    public float getX() {
+        return this.rect.x;
+    }
+
+    public float getY() {
+        return this.rect.y;
     }
 }

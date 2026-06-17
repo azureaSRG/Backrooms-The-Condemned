@@ -69,14 +69,14 @@ public class Main extends Game {
         Camera camera = new PerspectiveCamera();
         Viewport viewport = new FitViewport(800,480, camera);
 
-        Player player = new Player(0,0, viewport, sprites[58].getTexture());
+//        Player player = new Player(0,0, viewport, sprites[58].getTexture());
 
-        Faceling.Stranger entity = new Faceling.Stranger(0,0,sprites[73].getTexture(), player);
-        entity.runMain();
+//        Faceling.Stranger entity = new Faceling.Stranger(0,0,sprites[73].getTexture(), player);
+//        entity.runMain();
 
-        World world = new World();
-        world.generate();
-        world.print();
+//        World world = new World();
+//        world.generate();
+//        world.print();
     }
 
     public Batch getBatch() {

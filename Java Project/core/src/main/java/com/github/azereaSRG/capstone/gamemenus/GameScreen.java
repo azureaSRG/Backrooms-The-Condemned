@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.viewport.ExtendViewport;
@@ -35,6 +36,7 @@ public class GameScreen extends ScreenAdapter {
 
     private World world;
     private WorldRenderer worldRenderer;
+    private ShapeRenderer shapeRenderer;
 
     private Batch batch;
     private Texture bgdTexture = new Texture(Gdx.files.internal("bgd.png"));
@@ -53,6 +55,8 @@ public class GameScreen extends ScreenAdapter {
     public GameScreen(Main game) {
         this.game = game;
         this.batch = game.getBatch();
+
+        shapeRenderer = new ShapeRenderer();
         timer = 0;
 
         camera = new OrthographicCamera();
@@ -61,9 +65,9 @@ public class GameScreen extends ScreenAdapter {
         gameViewport = new ExtendViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         tileSheet = new Texture(Gdx.files.internal("sheet.png"));
 
-        //manually sets texture region positions
-        System.out.println("Sheet: " + tileSheet.getWidth() + "x" + tileSheet.getHeight());
-        System.out.println("Sheet loaded: " + tileSheet.getWidth() + "x" + tileSheet.getHeight());
+        //manually sets and checks texture region positions
+//        System.out.println("Sheet: " + tileSheet.getWidth() + "x" + tileSheet.getHeight());
+//        System.out.println("Sheet loaded: " + tileSheet.getWidth() + "x" + tileSheet.getHeight());
 
         TextureRegion roadTile = new TextureRegion();
         roadTile.setTexture(tileSheet);
@@ -101,18 +105,19 @@ public class GameScreen extends ScreenAdapter {
 
         world.print();
 
-        // Change player spawn to match world coordinates
+        // change spawns to match world coordinates
         worldCenter = new Vector2(world.getWidth()/2f, world.getHeight()/2f);
+        Vector2 safeSpawn = world.findSafeSpawn(TILE_SPACING);
 
         playerFront = new Texture(Gdx.files.internal("larry/larry-front-sprite.png"));
         playerBack  = new Texture(Gdx.files.internal("larry/larry-back-sprite.png"));
         playerLeft  = new Texture(Gdx.files.internal("larry/larry-left-sprite.png"));
         playerRight = new Texture(Gdx.files.internal("larry/larry-right-sprite.png"));
 
-        player = new Player(world.getWidth() / 2f * TILE_SPACING,
-            world.getHeight() / 2f * TILE_SPACING,
-            gameViewport, playerFront, playerBack, playerLeft, playerRight,
+        player = new Player(
+            safeSpawn.x, safeSpawn.y, gameViewport, playerFront, playerBack, playerLeft, playerRight,
             world.getWidth() * TILE_SPACING, world.getHeight() * TILE_SPACING);
+        player.setWallBounds(world.getWallBounds(TILE_SPACING, TILE_SPACING));
 
         enemy = new Stranger(worldCenter.x,worldCenter.y,new Texture(Gdx.files.internal(
             "itemDesigns/Finalized Designs/lilguy.png"))
@@ -139,7 +144,8 @@ public class GameScreen extends ScreenAdapter {
     }
 
     private void resetGame() {
-        player.reset(world.getWidth() / 2f, world.getHeight() / 2f);
+        Vector2 safeSpawn = world.findSafeSpawn(TILE_SPACING);
+        player.reset(safeSpawn.x, safeSpawn.y);
     }
 
     private void getPlayerInput() {
@@ -216,8 +222,27 @@ public class GameScreen extends ScreenAdapter {
         enemy.draw(batch);
         enemy.update(deltaTime);
 
-
         batch.end();
+
+        // wall collision debug
+
+        shapeRenderer.setProjectionMatrix(camera.combined);
+        shapeRenderer.begin(ShapeRenderer.ShapeType.Line);
+        shapeRenderer.setColor(Color.RED);
+        for (Rectangle wall : world.getWallBounds(TILE_SPACING, TILE_SIZE)) {
+            shapeRenderer.rect(wall.x, wall.y, wall.width, wall.height);
+        }
+        shapeRenderer.end();
+
+
+//        float offsetX = world.getWidth() * WorldRenderer.TILE_SPACING / 2f;
+//        float offsetY = world.getHeight() * WorldRenderer.TILE_SPACING / 2f;
+//
+//        System.out.println("Tile(0,0) draw pos: " + (0 - offsetX) + ", " + (0 - offsetY));
+//
+//        float wallX = (0 * WorldRenderer.TILE_SPACING) - offsetX;
+//        float wallY = (0 * WorldRenderer.TILE_SPACING) - offsetY;
+//        System.out.println("Wall(0,0) collision pos: " + wallX + ", " + wallY);
     }
 
     @Override
@@ -228,6 +253,7 @@ public class GameScreen extends ScreenAdapter {
         playerLeft.dispose();
         playerRight.dispose();
         tileSheet.dispose();
+        shapeRenderer.dispose();
     }
 
     public static void checkTimer(float timeIncrease) {

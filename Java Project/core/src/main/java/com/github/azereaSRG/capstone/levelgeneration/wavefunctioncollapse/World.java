@@ -1,7 +1,9 @@
 package com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse;
 
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 /**
@@ -286,6 +288,91 @@ public class World {
         }
 
         return best;
+    }
+
+    // In World.java
+    public ArrayList<Rectangle> getWallBounds(float tileSpacing, float tileSize) {
+        ArrayList<Rectangle> walls = new ArrayList<>();
+        float offsetX = width * tileSpacing / 2f;
+        float offsetY = height * tileSpacing / 2f;
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                Cell cell = grid[x][y];
+                if (cell == null || cell.collapsed == null) continue;
+                if (cell.collapsed == TileType.EMPTY ||
+//                    cell.collapsed == TileType.BUILDING ||
+                    cell.collapsed == TileType.BACKUP) {
+                    walls.add(new Rectangle(
+                        x * tileSpacing - (offsetX),
+                        y * tileSpacing - (offsetY),
+                        tileSpacing,
+                        tileSpacing
+                    ));
+                }
+            }
+        }
+        return walls;
+    }
+
+    public Vector2 findSafeSpawn(float tileSpacing) {
+        float offsetX = width * tileSpacing / 2f;
+        float offsetY = height * tileSpacing / 2f;
+
+        // Start from center and spiral outward looking for a road tile
+        int centerX = width / 2;
+        int centerY = height / 2;
+
+        for (int radius = 0; radius < Math.max(width, height); radius++) {
+            for (int dx = -radius; dx <= radius; dx++) {
+                for (int dy = -radius; dy <= radius; dy++) {
+                    // Only check the edge of the current radius
+                    if (Math.abs(dx) != radius && Math.abs(dy) != radius) continue;
+
+                    int x = centerX + dx;
+                    int y = centerY + dy;
+
+                    if (!inBounds(x, y)) continue;
+
+                    Cell cell = grid[x][y];
+                    if (cell == null || cell.collapsed == null) continue;
+
+                    // Spawn on road tiles only
+                    if (isRoadTile(cell.collapsed)) {
+                        return new Vector2(
+                            x * tileSpacing - offsetX,
+                            y * tileSpacing - offsetY
+                        );
+                    }
+                }
+            }
+        }
+
+        // Fallback to center if no road found (shouldn't happen)
+        return new Vector2(0, 0);
+    }
+
+    private boolean isRoadTile(TileType tile) {
+        switch (tile) {
+            case VERTICAL:
+            case HORIZONTAL:
+            case L_NE:
+            case L_NW:
+            case L_SE:
+            case L_SW:
+            case T_N:
+            case T_E:
+            case T_S:
+            case T_W:
+            case PLUS:
+            case DEAD_N:
+            case DEAD_E:
+            case DEAD_S:
+            case DEAD_W:
+                return true;
+            default:
+                return false;
+        }
     }
 
     /**

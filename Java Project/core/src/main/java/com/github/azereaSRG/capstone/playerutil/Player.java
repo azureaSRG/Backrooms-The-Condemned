@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.github.azereaSRG.capstone.GameObject;
@@ -18,6 +19,8 @@ import com.github.azereaSRG.capstone.itemutil.Item;
 import com.github.azereaSRG.capstone.itemutil.ItemCreator;
 import com.github.azereaSRG.capstone.Tag;
 import com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.World;
+
+import java.util.ArrayList;
 
 public class Player extends GameObject {
     private enum Direction {
@@ -52,6 +55,7 @@ public class Player extends GameObject {
 
     private final Vector2 moveDirection = new Vector2(0, 0);
     private final float xBound, yBound;
+    private ArrayList<Rectangle> wallBounds;
 
     public Player(float x, float y, Viewport gameViewport, Texture front, Texture back,
                   Texture left, Texture right, float xBound, float yBound) {
@@ -135,20 +139,34 @@ public class Player extends GameObject {
     }
 
     private void move(float deltaTime, boolean isSprinting) {
-        if (moveDirection.isZero()) return; //Ends method early
+        if (moveDirection.isZero()) return;
 
         int movementSpeed = isSprinting ? sprintSpeed : walkingSpeed;
 
-        float xDir = rect.getX() + moveDirection.x * movementSpeed * deltaTime;
-        float yDir = rect.getY() + moveDirection.y * movementSpeed * deltaTime;
+        float newX = rect.getX() + moveDirection.x * movementSpeed * deltaTime;
+        float newY = rect.getY() + moveDirection.y * movementSpeed * deltaTime;
 
-        xDir = MathUtils.clamp(xDir, 0, xBound- rect.getWidth());
-        yDir = MathUtils.clamp(yDir, 0, yBound - rect.getHeight());
+//        newX = MathUtils.clamp(newX, 0, xBound - rect.getWidth());
+//        newY = MathUtils.clamp(newY, 0, yBound - rect.getHeight());
 
-        rect.setPosition(xDir, yDir);
+        Rectangle testX = new Rectangle(newX, rect.getY(), rect.getWidth(), rect.getHeight());
+        Rectangle testY = new Rectangle(rect.getX(), newY, rect.getWidth(), rect.getHeight());
+
+        boolean blockX = false;
+        boolean blockY = false;
+
+        if (wallBounds != null) {
+            for (Rectangle wall : wallBounds) {
+                if (testX.overlaps(wall)) blockX = true;
+                if (testY.overlaps(wall)) blockY = true;
+                if (blockX && blockY) break;
+            }
+        }
+
+        if (!blockX) rect.setX(newX);
+        if (!blockY) rect.setY(newY);
+
         checkDuration(deltaTime);
-//        System.out.println("MOVE: " + rect.x + ", " + rect.y);
-
     }
 
     private void checkDuration(float deltaTime) {
@@ -279,10 +297,16 @@ public class Player extends GameObject {
         }
     }
 
+    public void setWallBounds(ArrayList<Rectangle> wallBounds) {
+        this.wallBounds = wallBounds;
+    }
+
 
     @Override
     public void draw(Batch batch) {
         TextureRegion frame = currentAnimation.getKeyFrame(stateTime, true); // true = loop
         batch.draw(frame, rect.x, rect.y, rect.width, rect.height);
+//        System.out.println("Player rect: " + rect.x + ", " + rect.y +
+//            " size: " + rect.width + "x" + rect.height);
     }
 }

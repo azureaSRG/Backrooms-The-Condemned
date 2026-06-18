@@ -20,9 +20,11 @@ import com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.World;
 import com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.WorldRenderer;
 import com.github.azereaSRG.capstone.playerutil.Player;
 
+import static com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.WorldRenderer.TILE_SPACING;
+
 public class GameScreen extends ScreenAdapter {
-    private static final float WORLD_WIDTH = 32f;
-    private static final float WORLD_HEIGHT = 18f;
+    private static final float WORLD_WIDTH = 32f * WorldRenderer.getTileScale();
+    private static final float WORLD_HEIGHT = 18f * WorldRenderer.getTileScale();
     private static final int DAY_LENGTH = 600; //in seconds
     private static final int NIGHT_LENGTH = 600;
     private static final int TILE_SIZE = 1;
@@ -36,7 +38,7 @@ public class GameScreen extends ScreenAdapter {
 
     private Batch batch;
     private Texture bgdTexture = new Texture(Gdx.files.internal("bgd.png"));
-    private Texture playerTexture = new Texture(Gdx.files.internal("larry/larry-front-sprite(Single).png"));
+    private Texture playerFront, playerBack, playerRight, playerLeft;
     private OrthographicCamera camera;
     private Viewport gameViewport;
     private final Vector2 inputMovement = new Vector2();
@@ -46,6 +48,7 @@ public class GameScreen extends ScreenAdapter {
     private final Player player;
     private final FacelingInterface enemy;
 
+    private final Vector2 worldCenter;
 
     public GameScreen(Main game) {
         this.game = game;
@@ -53,30 +56,43 @@ public class GameScreen extends ScreenAdapter {
         timer = 0;
 
         camera = new OrthographicCamera();
+        camera.zoom = 0.15f;
+
         gameViewport = new ExtendViewport(WORLD_WIDTH, WORLD_HEIGHT, camera);
         tileSheet = new Texture(Gdx.files.internal("sheet.png"));
 
-        TextureRegion[][] split = TextureRegion.split(tileSheet, TILE_SIZE, TILE_SIZE);
+        //manually sets texture region positions
+        System.out.println("Sheet: " + tileSheet.getWidth() + "x" + tileSheet.getHeight());
+        System.out.println("Sheet loaded: " + tileSheet.getWidth() + "x" + tileSheet.getHeight());
+
+        TextureRegion roadTile = new TextureRegion();
+        roadTile.setTexture(tileSheet);
+        roadTile.setRegion(0, 0, 383, 384);
+
+        TextureRegion buildingTile = new TextureRegion();
+        buildingTile.setTexture(tileSheet);
+        buildingTile.setRegion(384, 0, 383, 384);
+
+        TextureRegion emptyTile = new TextureRegion();
+        emptyTile.setTexture(tileSheet);
+        emptyTile.setRegion(767, 0, 383, 384);
 
         sprites = new TextureRegion[] {
-            split[0][0], // vertical
-            split[0][0], // horizontal
-            split[0][0], // l_ne
-            split[0][0], // l_nw
-            split[0][0], // l_se
-            split[0][0], // l_sw
-            split[0][0], // t_n
-            split[0][0], // t_e
-            split[0][0], // t_s
-            split[0][0], // t_w
-            split[0][0], // plus
-            split[0][0], // dead_n
-            split[0][0], // dead_e
-            split[0][0], // dead_s
-            split[0][0], // dead_w
-            split[0][1], // building
-            split[0][2]  // empty
+            roadTile,     // VERTICAL
+            buildingTile, // BUILDING
+            emptyTile     // EMPTY
         };
+
+        // texture debugging
+//        System.out.println("Road region: " + roadTile.getRegionWidth() + "x" + roadTile.getRegionHeight());
+//        System.out.println("Building region: " + buildingTile.getRegionWidth() + "x" + buildingTile.getRegionHeight());
+//        System.out.println("Empty region: " + emptyTile.getRegionWidth() + "x" + emptyTile.getRegionHeight());
+//        System.out.println("tileSprites[0] (road): " + sprites[0].getRegionX());
+//        System.out.println("tileSprites[1] (building): " + sprites[1].getRegionX());
+//        System.out.println("tileSprites[2] (empty): " + sprites[2].getRegionX());
+//        System.out.println("road x: " + roadTile.getRegionX());
+//        System.out.println("building x: " + buildingTile.getRegionX());
+//        System.out.println("empty x: " + emptyTile.getRegionX());
 
         world = new World();
         world.generate();
@@ -84,13 +100,32 @@ public class GameScreen extends ScreenAdapter {
         worldRenderer = new WorldRenderer(world, camera, sprites);
 
         world.print();
+
         // Change player spawn to match world coordinates
-        player = new Player(world.getWidth() / 2f, world.getHeight() / 2f,
-            gameViewport, playerTexture);
-        enemy = new Stranger(0,0,new Texture(Gdx.files.internal(
+        worldCenter = new Vector2(world.getWidth()/2f, world.getHeight()/2f);
+
+        playerFront = new Texture(Gdx.files.internal("larry/larry-front-sprite.png"));
+        playerBack  = new Texture(Gdx.files.internal("larry/larry-back-sprite.png"));
+        playerLeft  = new Texture(Gdx.files.internal("larry/larry-left-sprite.png"));
+        playerRight = new Texture(Gdx.files.internal("larry/larry-right-sprite.png"));
+
+        player = new Player(world.getWidth() / 2f * TILE_SPACING,
+            world.getHeight() / 2f * TILE_SPACING,
+            gameViewport, playerFront, playerBack, playerLeft, playerRight,
+            world.getWidth() * TILE_SPACING, world.getHeight() * TILE_SPACING);
+
+        enemy = new Stranger(worldCenter.x,worldCenter.y,new Texture(Gdx.files.internal(
             "itemDesigns/Finalized Designs/lilguy.png"))
             ,player);
         bgdTexture.setWrap(Texture.TextureWrap.Repeat, Texture.TextureWrap.Repeat);
+    }
+
+    public static float getWorldHeight() {
+        return WORLD_HEIGHT;
+    }
+
+    public static float getWorldWidth() {
+        return WORLD_WIDTH;
     }
 
     @Override
@@ -120,18 +155,23 @@ public class GameScreen extends ScreenAdapter {
          }
          playerMovementInputs();
     }
+
     private void playerMovementInputs() {
         if (Gdx.input.isKeyPressed(Input.Keys.W)) {
             inputMovement.y += 1;
+            player.setDirection(3);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.S)) {
             inputMovement.y -= 1;
+            player.setDirection(1);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
             inputMovement.x -= 1;
+            player.setDirection(2);
         }
         if (Gdx.input.isKeyPressed(Input.Keys.D)) {
             inputMovement.x += 1;
+            player.setDirection(0);
         }
 
         inputMovement.nor(); //Normalized Vector
@@ -164,18 +204,14 @@ public class GameScreen extends ScreenAdapter {
         ScreenUtils.clear(Color.WHITE);
         batch.setProjectionMatrix(camera.combined);
 
-
-
         batch.begin();
         float uW = gameViewport.getWorldWidth() / WORLD_WIDTH;
         float vH = gameViewport.getWorldHeight() / WORLD_HEIGHT;
-        batch.draw(bgdTexture, 0, 0, gameViewport.getWorldWidth()
-            , gameViewport.getWorldHeight(), 0, 0, uW, vH);
+//        batch.draw(bgdTexture, worldCenter.x, worldCenter.y, gameViewport.getWorldWidth()
+//            , gameViewport.getWorldHeight(), 0, 0, uW, vH);
         worldRenderer.render(batch);
 
-
         player.draw(batch);
-
 
         enemy.draw(batch);
         enemy.update(deltaTime);
@@ -187,7 +223,10 @@ public class GameScreen extends ScreenAdapter {
     @Override
     public void dispose() {
         bgdTexture.dispose();
-        playerTexture.dispose();
+        playerFront.dispose();
+        playerBack.dispose();
+        playerLeft.dispose();
+        playerRight.dispose();
         tileSheet.dispose();
     }
 

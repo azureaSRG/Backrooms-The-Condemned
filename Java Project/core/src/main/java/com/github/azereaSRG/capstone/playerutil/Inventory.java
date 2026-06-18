@@ -1,5 +1,6 @@
 package com.github.azereaSRG.capstone.playerutil;
 import com.github.azereaSRG.capstone.itemutil.Item;
+import com.github.azereaSRG.capstone.itemutil.Weapon;
 
 import java.util.ArrayList;
 
@@ -16,8 +17,28 @@ public class Inventory {
     }
 }
 
-class PrimarySlot {}
-class SecondarySlot {}
+class PrimarySlot {
+    Item item;
+
+    Item changeItem(Item item) {
+        Item temp = this.item;
+        this.item = item;
+        return temp;
+    }
+}
+class SecondarySlot {
+    Item item;
+
+    Item changeItem(Item item) {
+        if (item.getClass() == Weapon.class) {
+            System.out.println("Cannot put weapon in secondary slot");
+            return null;
+        }
+        Item temp = this.item;
+        this.item = item;
+        return temp;
+    }
+}
 
 class Backpack {
     /*

@@ -38,6 +38,7 @@ public class Faceling {
 
     public static class Stranger extends FacelingInterface {
         private float attackCooldown;
+
         public Stranger(float x, float y, Texture texture, Player playerRef) {
             super(x, y, texture, playerRef);
             actionState = ActionStates.WANDERING;

@@ -31,6 +31,10 @@ public interface EntityInterface {
         protected int health, strength, stamina, speed, acceleration;
         protected float attackRange, visionRange, hearingRange;
 
+        public EntityClass(float x, float y) {
+            this(x, y, null, null);
+        }
+
         public EntityClass(float x, float y, Texture texture, Player playerRef) {
             super(x, y, texture, playerRef);
             this.tag = Tag.ENEMY;

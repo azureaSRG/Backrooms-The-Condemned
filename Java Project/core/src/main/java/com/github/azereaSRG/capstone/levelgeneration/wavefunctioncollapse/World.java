@@ -17,7 +17,7 @@ public class World {
 
     //grid backbone to prevent total randomness
     private final float GRID_DISCONNECT_CHANCE = 0.25f;
-    private final int ROAD_SPACING = 7;
+    private final int ROAD_SPACING = 7; //old usage => 7
     private RoadNode[][] roadGraph;
 
     //possible wave states

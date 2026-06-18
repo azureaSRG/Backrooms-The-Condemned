@@ -237,7 +237,7 @@ public class World {
             " but found no compatible nodes.");
     }
 
-    //Checks if vector is within grid bounds
+    // checks if vector is within grid bounds
     private boolean inBounds(int x, int y) {
         return (x > -1 && x < width && y > -1 && y < height);
 //        return (v2.x > -1 && v2.x < width && v2.y > -1 && v2.y < height);
@@ -290,7 +290,6 @@ public class World {
         return best;
     }
 
-    // In World.java
     public ArrayList<Rectangle> getWallBounds(float tileSpacing, float tileSize) {
         ArrayList<Rectangle> walls = new ArrayList<>();
         float offsetX = width * tileSpacing / 2f;
@@ -319,14 +318,14 @@ public class World {
         float offsetX = width * tileSpacing / 2f;
         float offsetY = height * tileSpacing / 2f;
 
-        // Start from center and spiral outward looking for a road tile
+        // start from center and spiral outward looking for a road tile
         int centerX = width / 2;
         int centerY = height / 2;
 
         for (int radius = 0; radius < Math.max(width, height); radius++) {
             for (int dx = -radius; dx <= radius; dx++) {
                 for (int dy = -radius; dy <= radius; dy++) {
-                    // Only check the edge of the current radius
+                    // only check the edge of the current radius
                     if (Math.abs(dx) != radius && Math.abs(dy) != radius) continue;
 
                     int x = centerX + dx;
@@ -337,7 +336,7 @@ public class World {
                     Cell cell = grid[x][y];
                     if (cell == null || cell.collapsed == null) continue;
 
-                    // Spawn on road tiles only
+                    // spawn on road tiles only
                     if (isRoadTile(cell.collapsed)) {
                         return new Vector2(
                             x * tileSpacing - offsetX,
@@ -348,7 +347,8 @@ public class World {
             }
         }
 
-        // Fallback to center if no road found (shouldn't happen)
+        // fallback to center if no road found (shouldn't happen)
+        System.out.println("No valid spawn point was found");
         return new Vector2(0, 0);
     }
 

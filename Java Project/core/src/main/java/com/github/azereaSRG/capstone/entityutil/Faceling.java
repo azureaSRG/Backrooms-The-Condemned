@@ -13,7 +13,7 @@ public class Faceling {
         protected boolean isRacist;
         protected float aggression;
         protected int bond;
-        protected HashMap<Item, Float> drops = new HashMap<>();
+        protected HashMap<Item, Float> drops = new HashMap<>(); // (Item, Drop Chance)
 
         public FacelingInterface(float x, float y, Texture texture, Player playerRef) {
             super(x, y, texture, playerRef);

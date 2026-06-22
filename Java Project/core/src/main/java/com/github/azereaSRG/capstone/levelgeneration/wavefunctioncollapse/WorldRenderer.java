@@ -51,7 +51,7 @@ public class WorldRenderer {
                 float baseX = x * TILE_SPACING - offsetX;
                 float baseY = y * TILE_SPACING - offsetY;
 
-                // sub divisions for textures
+                // subdivisions for textures
                 for (int sx = 0; sx < SUBDIVISIONS; sx++) {
                     for (int sy = 0; sy < SUBDIVISIONS; sy++) {
                         float drawX = baseX + sx * subSize;
@@ -68,7 +68,7 @@ public class WorldRenderer {
     private TextureRegion getRegion(TileType tile) {
         switch(tile) {
 
-            case VERTICAL:
+            case VERTICAL: //add when other texture are added
                 return tileSprites[0];
 
             case HORIZONTAL:

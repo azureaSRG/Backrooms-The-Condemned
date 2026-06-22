@@ -292,8 +292,8 @@ public class World {
 
     public ArrayList<Rectangle> getWallBounds(float tileSpacing, float tileSize) {
         ArrayList<Rectangle> walls = new ArrayList<>();
-        float offsetX = width * tileSpacing / 2f;
-        float offsetY = height * tileSpacing / 2f;
+        float offsetX = width * tileSpacing / 2f - (1/tileSpacing);
+        float offsetY = height * tileSpacing / 2f - (1/tileSpacing);
 
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {

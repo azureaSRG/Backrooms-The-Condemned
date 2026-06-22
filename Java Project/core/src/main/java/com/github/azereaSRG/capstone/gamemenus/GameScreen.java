@@ -22,6 +22,7 @@ import com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.WorldR
 import com.github.azereaSRG.capstone.playerutil.Player;
 
 import static com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.WorldRenderer.TILE_SPACING;
+import static com.github.azereaSRG.capstone.levelgeneration.wavefunctioncollapse.WorldRenderer.getTileScale;
 
 public class GameScreen extends ScreenAdapter {
     private static final float WORLD_WIDTH = 32f * WorldRenderer.getTileScale();
@@ -145,7 +146,7 @@ public class GameScreen extends ScreenAdapter {
 
     private void resetGame() {
         Vector2 safeSpawn = world.findSafeSpawn(TILE_SPACING);
-        player.reset(safeSpawn.x, safeSpawn.y);
+        player.reset(safeSpawn.x - (1/2f), safeSpawn.y - (1/2f)); // Makes spawns semi-viable
     }
 
     private void getPlayerInput() {
